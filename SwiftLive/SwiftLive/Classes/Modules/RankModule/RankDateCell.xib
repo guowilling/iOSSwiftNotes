@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="i2Q-Gz-yaB" customClass="RankDateCell" customModule="SwiftLive" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i2Q-Gz-yaB" id="6I7-fY-e2P">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erZ-ue-qJe">
+                        <rect key="frame" x="10" y="10" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="U0z-UR-K8w"/>
+                            <constraint firstAttribute="width" constant="30" id="oxU-eE-SDU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="1">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="elf-iL-LIe">
+                        <rect key="frame" x="50" y="8" width="33.5" height="33.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="elf-iL-LIe" secondAttribute="height" multiplier="1:1" id="XlN-k4-ACn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浅月、Baby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gge-Pl-aU1">
+                        <rect key="frame" x="98.5" y="16.5" width="76" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rank_icon_zhibo" translatesAutoresizingMaskIntoConstraints="NO" id="elR-XD-XsI">
+                        <rect key="frame" x="273" y="18" width="24" height="14"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="erZ-ue-qJe" firstAttribute="centerY" secondItem="6I7-fY-e2P" secondAttribute="centerY" id="2Cw-6x-5Rp"/>
+                    <constraint firstItem="elf-iL-LIe" firstAttribute="leading" secondItem="erZ-ue-qJe" secondAttribute="trailing" constant="10" id="A3s-WY-NNA"/>
+                    <constraint firstItem="elf-iL-LIe" firstAttribute="top" secondItem="6I7-fY-e2P" secondAttribute="top" constant="8" id="B1f-XK-t8r"/>
+                    <constraint firstAttribute="bottom" secondItem="elf-iL-LIe" secondAttribute="bottom" constant="8" id="DlS-HN-Ku2"/>
+                    <constraint firstItem="Gge-Pl-aU1" firstAttribute="leading" secondItem="elf-iL-LIe" secondAttribute="trailing" constant="15" id="HGN-so-WV6"/>
+                    <constraint firstItem="elR-XD-XsI" firstAttribute="centerY" secondItem="6I7-fY-e2P" secondAttribute="centerY" id="Xj9-Ja-Zbv"/>
+                    <constraint firstItem="Gge-Pl-aU1" firstAttribute="centerY" secondItem="elf-iL-LIe" secondAttribute="centerY" id="m9N-UE-1ZQ"/>
+                    <constraint firstItem="erZ-ue-qJe" firstAttribute="leading" secondItem="6I7-fY-e2P" secondAttribute="leading" constant="10" id="p4R-re-N38"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="elR-XD-XsI" secondAttribute="trailing" constant="15" id="tTd-cA-LqE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="elf-iL-LIe" id="GjN-YQ-hDu"/>
+                <outlet property="liveImageView" destination="elR-XD-XsI" id="th2-Oq-hD3"/>
+                <outlet property="nickNameLabel" destination="Gge-Pl-aU1" id="Chw-4D-gST"/>
+                <outlet property="rankNumBtn" destination="erZ-ue-qJe" id="7CI-Av-OvA"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="rank_icon_zhibo" width="24" height="14"/>
+    </resources>
+</document>
