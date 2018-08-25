@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swift3.0语法速查手册 - 嵌套类型</title>
+    <link rel="stylesheet" href="../source/site.css">
+    <link rel="stylesheet" href="../source/prism.css">
+    <link rel="shortcut icon" href="../source/favicon.ico">
+</head>
+<body>
+<div id="container">
+    <h1>
+        <a href='#'>Swift3.0语法速查手册</a>
+        <span class="topic">嵌套类型</span>
+    </h1>
+
+    <main>
+        <table>
+            <tbody>
+            <tr>
+                <td class='docs'></td>
+                <td class='code'>
+                    <pre><code class='language-swift'> </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 1. 类型嵌套 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>// 可以在允许类型嵌套的类型中嵌套枚举 类 结构体,并且支持多层嵌套</code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 2. 值类型的嵌套 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>struct NestedStruct {
+    enum enumType1: Character {         // 在结构体中嵌套枚举
+        case enumValue1 = "A", enumValue2 = "B", enumValue3 = "C"
+    }
+    enum enumType2: Int {
+        case two = 2, three, four
+        struct Values {                 // 枚举中嵌套结构体
+            enum num: Int {             // 结构体中再嵌套枚举
+                case num1 = 1, num2, num3
+            }
+        }
+    }
+}
+
+// 枚举和结构体都是值类型,直接通过类型名称调用
+print(NestedStruct.enumType1.enumValue2.rawValue) // B
+print(NestedStruct.enumType2.Values.num.num2.rawValue) // 2</code></pre>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class='docs'> 3. 引用类型嵌套 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>class ClassType1 {
+    class ClassType2 {
+        func hello() -> String {
+            return "Hello"
+        }
+    }
+    enum enumType2: Int {               // 引用类型中嵌套值类型
+        case two = 2, three, four
+        struct Values {                 // 枚举中嵌套结构体
+            enum num: Int {             // 结构体中再嵌套枚举
+                case num1 = 1, num2, num3
+            }
+        }
+    }
+}
+
+let someClass = ClassType1.ClassType2() // 引用类型嵌套也是在类型名前面加外部类型的类型名
+print(someClass.hello())                // Hello
+print(ClassType1.enumType2.Values.num.num1.rawValue) // 1
+                    </code></pre>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <nav>
+            <a href="../22-error-handling" class="prev" rel="prev">错误处理</a>
+            <a href="../24-extensions" class="next" rel="next">扩展</a>
+        </nav>
+
+    </main>
+
+    <footer>
+        Powered by <a href="http://weibo.com/847309226">@Dariel在杭州</a>
+        <a href="https://github.com/DarielChen/darielchen.github.io/tree/master/SwiftManual">source</a>
+        Refer to <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+    </footer>
+
+</div>
+<script async src="../source/site.js"></script>
+<script src="../source/prism.js"></script>
+</body>
+</html>

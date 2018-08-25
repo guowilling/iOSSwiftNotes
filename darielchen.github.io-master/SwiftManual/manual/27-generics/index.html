@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swift3.0语法速查手册 - 泛型</title>
+    <link rel="stylesheet" href="../source/site.css">
+    <link rel="stylesheet" href="../source/prism.css">
+    <link rel="shortcut icon" href="../source/favicon.ico">
+</head>
+<body>
+<div id="container">
+    <h1>
+        <a href='#'>Swift3.0语法速查手册</a>
+        <span class="topic">泛型</span>
+    </h1>
+
+    <main>
+        <table>
+            <tbody>
+            <tr>
+                <td class='docs'></td>
+                <td class='code'>
+                    <pre><code class='language-swift'> </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 1. 泛型: 使用泛型能更清晰更简洁的表达代码意图 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>// 泛型所解决的问题
+func swapTwoInts(a: inout Int, _ b: inout Int) { // 交换两个Int的值
+    let temp = a
+    a = b
+    b = temp
+}
+var someInt = 3
+var anotherInt = 5
+swapTwoInts(a: &someInt, &anotherInt)
+
+// 但如果想交换String Double类型的数该怎样做呢?再写两个函数?
+                    </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 2. 泛型函数: 在函数名后面添加< T >,表示T是函数定义的占位类型,只要前后一致,别的字母也可以 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>func swapTwoValues&ltT&gt(a: inout T, _ b: inout T) { // 用T来替代实际类型,a和b是同一类型T
+    let temp = a
+    a = b
+    b = temp
+}
+swapTwoValues(a: &someInt, &anotherInt) // 在调用函数时,根据实际类型推断出T的类型
+
+var StringA = "A"
+var StringB = "B"
+swapTwoValues(a: &StringA, &StringB)    // 只要传入任何相同的类型都可以
+print("StringA:\(StringA),StringB:\(StringB)") // StringA:B,StringB:A
+                    </code></pre>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class='docs'> 3. 类型参数 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>// 在上面的例子中占位类型T就是一个类型参数.
+// 类型参数可以在函数名后面加一个占位类型, 并用尖括号括起来.例如< T >
+// 类型参数设定后,就可以当做函数的参数类型使用了,可以是参数类型也可以是返回类型
+// 当函数被调用的时候,类型参数会被转化为实际类型
+// 类型参数可以有多个,可以写在尖括号中,用逗号隔开
+// 通常使用单个字母T U V来命名类型参数,但也可以是以大写字母开头的字符串
+                    </code></pre>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class='docs'> 4. 泛型类型: 能够让自定义类,结构体和枚举适用于任何类型,类似于Array和Dictionary </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>struct Stack&ltElement> {                 // 模拟栈的操作过程的泛型集合类型
+    var items = [Element]()             // 使用Element为空数组进行初始化
+    mutating func push(item: Element) { // push的参数类型是Element
+        items.append(item)
+    }
+    mutating func pop() -> Element {    // pop的返回值类型是Element类型
+        return items.removeLast()
+    }
+}
+var stackOfStrings = Stack&ltString>()  // 在尖括号中写出栈中需要存储的数据类型
+stackOfStrings.push(item: "A")
+stackOfStrings.push(item: "B")
+stackOfStrings.push(item: "C")
+let fromTheTop = stackOfStrings.pop()
+print(stackOfStrings.items)             // ["A", "B"]
+                    </code></pre>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class='docs'> 5. 泛型类型的扩展: 原类型中的类型参数在扩展中可以直接使用 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>extension Stack {
+    var topItem: Element? {             // 返回栈顶元素的只读计算属性
+        return items.isEmpty ? nil : items[items.count - 1]
+    }
+}
+if let topItem = stackOfStrings.topItem {
+    print("topItem:\(topItem)")         // topItem:B
+}
+                    </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 6. 类型约束:swapTwoValues(_:_:)和Stack适用于任何类型,但有时我们需要对类型进行一些约束,这些约束可以是类型参数必须继承指定类,或者符合特定的协议或协议组合 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>class SomeClass {}
+protocol SomeProtocol {}
+// T的类型参数必须是SomeClass的子类,U的类型参数必须遵守SomeProtocol协议
+func someFunction&ltT: SomeClass, U: SomeProtocol>(someT: T, someU: U) { // 类型约束语法
+}
+
+// 根据字符串查找在数组中的索引
+func findIndex&ltT: Equatable>(of valueToFind: T, in array:[T]) -> Int? {
+    for (index, value) in array.enumerated() {
+        // 为T增加一个Equatable协议,遵循该协议的类型必须实现等式符和不等符号.才可以对两个类型进行比较
+        if value == valueToFind {
+            return index
+        }
+    }
+    return nil
+}
+
+let doubleIndex = findIndex(of: 5.0, in: [3.2, 1.0, 5.0, 5,6]) // 2
+let stringIndex = findIndex(of: "O", in: ["V", "D", "E", "O"]) // 3
+                    </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 7. 类型的关联: 关联类型为协议中某个类型提供别名 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>protocol Container {                     // 定义一个Container协议
+    associatedtype ItemType             // 通过associatedtype关键词来定义一个关联类型
+    mutating func append(item: ItemType) // 添加一个新的元素到容器里
+    var count: Int { get }              // 获取容器中的元素个数
+    subscript(i: Int) -> ItemType { get } // 通过索引获取容器中的元素
+}
+
+struct NewStack&ltElement>: Container {
+    var items = [Element]()
+    mutating func push(item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -> Element {
+        return items.removeLast()
+    }
+    mutating func append(item: Element) {
+        self.push(item: item)
+    }
+    var count: Int {
+        return items.count
+    }
+    subscript(i: Int) -> Element {      // swift会自动推断Element就是ItemType类型
+        return items[i]                 // 不需要再去指定ItemType类型为Element类型
+    }
+}
+                    </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 8. where子句: 为泛型的类型参数做一些约束 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>// where语句指定C1和C2的类型必须一致,且C1遵循Equatable协议
+func allItemMatch&ltC1: Container, C2: Container>(_ someContainer: C1, _ anotherContainer
+     : C2) -> Bool where C1.ItemType == C2.ItemType, C1.ItemType: Equatable {
+    // 检查两个容器是否含有相同的元素
+    if someContainer.count != anotherContainer.count {
+        return false
+    }
+    // 检查每一对元素是否相等
+    for i in 0..&ltsomeContainer.count {
+        if someContainer[i] != anotherContainer[i] {
+            return false
+        }
+    }
+    return true
+}
+
+var stackOfString = NewStack&ltString>()
+stackOfString.push(item: "O")
+stackOfString.push(item: "P")
+stackOfString.push(item: "Q")
+
+var arrayOfString = NewStack&ltString>()
+arrayOfString.items = ["O", "P", "Q"]
+if allItemMatch(stackOfString, arrayOfString) { // 判断两个遵循Container协议的数组元素是否一致
+    print("全部元素匹配")                 // 全部元素匹配
+}else {
+    print("元素不全部匹配")
+}
+                    </code></pre>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <nav>
+            <a href="../26-type-casting" class="prev" rel="prev">类型转换</a>
+            <a href="../28-access-control" class="next" rel="next">访问控制</a>
+        </nav>
+
+    </main>
+
+    <footer>
+        Powered by <a href="http://weibo.com/847309226">@Dariel在杭州</a>
+        <a href="https://github.com/DarielChen/darielchen.github.io/tree/master/SwiftManual">source</a>
+        Refer to <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+    </footer>
+
+</div>
+<script async src="../source/site.js"></script>
+<script src="../source/prism.js"></script>
+</body>
+</html>

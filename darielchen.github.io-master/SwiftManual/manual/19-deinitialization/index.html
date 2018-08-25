@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swift3.0语法速查手册 - 析构过程</title>
+    <link rel="stylesheet" href="../source/site.css">
+    <link rel="stylesheet" href="../source/prism.css">
+    <link rel="shortcut icon" href="../source/favicon.ico">
+</head>
+<body>
+<div id="container">
+    <h1>
+        <a href='#'>Swift3.0语法速查手册</a>
+        <span class="topic">析构过程</span>
+    </h1>
+
+    <main>
+        <table>
+            <tbody>
+            <tr>
+                <td class='docs'></td>
+                <td class='code'>
+                    <pre><code class='language-swift'> </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 1. 析构过程: 当一个实例不再需要的时候,swift通过自动引用计数去自动清理内存的过程 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>// 析构器: 析构器只适用于类类型,类实例被释放前会自动调用析构器,析构器用关键字deinit来标识
+
+class SomeClass {
+    deinit {                            // 析构器只能定义在类中,且只能是一个
+        // 执行析构过程                   // 子类继承的父类,也就继承了父类的析构器
+    }                                   // deinit相当于OC的dealloc
+}
+                    </code></pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td class='docs'> 2. 析构器实践 </td>
+                <td class='code'>
+                    <pre><code class='language-swift'>class DeinitTest {
+
+    // 类中相关代码
+
+    deinit {
+        print("deinit")
+    }
+}
+var test: DeinitTest? = DeinitTest()    // 定义一个可选类型,为了置为nil释放内存
+test = nil                              // deinit, 实例没有引用,内存回收,调用deinit方法
+                    </code></pre>
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+        <nav>
+            <a href="../18-initialization" class="prev" rel="prev">构造过程</a>
+            <a href="../20-automatic-reference-counting" class="next" rel="next">自动引用计数</a>
+        </nav>
+
+    </main>
+
+    <footer>
+        Powered by <a href="http://weibo.com/847309226">@Dariel在杭州</a>
+        <a href="https://github.com/DarielChen/darielchen.github.io/tree/master/SwiftManual">source</a>
+        Refer to <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+    </footer>
+
+</div>
+<script async src="../source/site.js"></script>
+<script src="../source/prism.js"></script>
+</body>
+</html>
