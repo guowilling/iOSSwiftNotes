@@ -3,7 +3,6 @@ import UIKit
 import MJRefresh
 
 extension UIScrollView {
-    
     var u17RefreshHeader: MJRefreshHeader {
         get { return mj_header }
         set { mj_header = newValue }
@@ -16,7 +15,6 @@ extension UIScrollView {
 }
 
 class URefreshHeader: MJRefreshGifHeader {
-    
     override func prepare() {
         super.prepare()
         
@@ -39,7 +37,6 @@ class URefreshFooter: MJRefreshBackNormalFooter { }
 class URefreshAutoFooter: MJRefreshAutoFooter { }
 
 class URefreshDiscoverFooter: MJRefreshBackGifFooter {
-    
     override func prepare() {
         super.prepare()
         

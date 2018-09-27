@@ -123,6 +123,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6E3683E8215D28B8000A2F3A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6EEC15E02131F3CA00AF209E /* Main */,
+				6EEC15DF2131F3BB00AF209E /* Today */,
+				6EEC15F32131F4E100AF209E /* Find */,
+				6EEC161B2131F76D00AF209E /* Bookrack */,
+				6EEC161C2131F77900AF209E /* Mine */,
+				6EEC15D22131F2F000AF209E /* Vendor */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		6EEC15A42131F00D00AF209E = {
 			isa = PBXGroup;
 			children = (
@@ -144,12 +157,7 @@
 		6EEC15AF2131F00D00AF209E /* SwiftU17 */ = {
 			isa = PBXGroup;
 			children = (
-				6EEC15E02131F3CA00AF209E /* Main */,
-				6EEC15DF2131F3BB00AF209E /* Today */,
-				6EEC15F32131F4E100AF209E /* Find */,
-				6EEC161B2131F76D00AF209E /* Bookrack */,
-				6EEC161C2131F77900AF209E /* Mine */,
-				6EEC15D22131F2F000AF209E /* Vendor */,
+				6E3683E8215D28B8000A2F3A /* Classes */,
 				6EEC15B72131F00E00AF209E /* Assets.xcassets */,
 				6EEC15BC2131F00E00AF209E /* Info.plist */,
 				6EEC16232131F9D200AF209E /* LaunchScreen.storyboard */,
@@ -217,13 +225,13 @@
 			isa = PBXGroup;
 			children = (
 				6EEC16072131F52700AF209E /* U17FindController.swift */,
-				6EEC15F62131F52700AF209E /* Recommend */,
 				6EEC15F52131F52700AF209E /* U17SubscribeController.swift */,
 				6EEC16032131F52700AF209E /* U17VIPController.swift */,
 				6EEC16082131F52800AF209E /* U17VIPAndSubscribeCell.swift */,
 				6EEC16092131F52800AF209E /* U17VIPAndSubscribeCell.xib */,
 				6EEC16052131F52700AF209E /* U17RankController.swift */,
 				6EEC16062131F52700AF209E /* U17RankCell.swift */,
+				6EEC15F62131F52700AF209E /* Recommend */,
 			);
 			path = Find;
 			sourceTree = "<group>";

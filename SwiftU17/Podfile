@@ -6,15 +6,14 @@ target 'SwiftU17' do
   use_frameworks!
 
   # Pods for SwiftU17
-  
     pod 'SnapKit'
+    pod 'Alamofire'
     pod 'Moya'
     pod 'HandyJSON'
-    pod 'SVProgressHUD'
     pod 'Kingfisher'
-    pod 'MJRefresh'
     pod 'FSPagerView'
     pod 'ESTabBarController-swift'
     pod 'SwipeMenuViewController'
-
+    pod 'SVProgressHUD'
+    pod 'MJRefresh'
 end

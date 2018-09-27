@@ -464,12 +464,12 @@ struct TopModel: HandyJSON {
 
 struct CateListModel: HandyJSON {
     var recommendSearch: String?
-    var rankingList:[RankingModel]?
-    var topList:[TopModel]?
+    var rankingList: [RankingModel]?
+    var topList: [TopModel]?
 }
 
 struct ReturnData<T: HandyJSON>: HandyJSON {
-    var message:String?
+    var message: String?
     var returnData: T?
     var stateCode: Int = 0
 }

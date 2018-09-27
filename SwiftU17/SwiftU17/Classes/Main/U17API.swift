@@ -100,6 +100,7 @@ extension U17API: TargetType {
     }
     
     var method: Moya.Method { return .get }
+    
     var task: Task {
         var parmeters = ["time": Int32(Date().timeIntervalSince1970),
                          "device_id": UIDevice.current.identifierForVendor!.uuidString,
@@ -151,8 +152,9 @@ extension U17API: TargetType {
         return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)
     }
     
-    var sampleData: Data { return "".data(using: String.Encoding.utf8)! }
     var headers: [String: String]? { return nil }
+    
+    var sampleData: Data { return "".data(using: String.Encoding.utf8)! }
 }
 
 extension Response {

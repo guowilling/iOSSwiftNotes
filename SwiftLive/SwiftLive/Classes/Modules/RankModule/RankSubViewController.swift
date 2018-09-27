@@ -28,7 +28,6 @@ class RankSubViewController: UIViewController {
 }
 
 extension RankSubViewController {
-    
     func setupUI(_ titles: [String]) {
         let frame = CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - 64 - 44)
         let titles = titles

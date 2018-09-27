@@ -24,7 +24,6 @@ class RankWeekDetailViewController: RankDateDetailViewController {
 }
 
 extension RankWeekDetailViewController {
-    
     override func loadRankData() {
         rankVM.loadRankWeekData(rankType) {
             self.tableView.reloadData()

@@ -108,14 +108,15 @@ extension U17TodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let item = self.dayDataList[indexPath.section].dayItemDataList?[indexPath.row]
+        print(item!)
     }
 }
 
 extension U17TodayViewController: U17TodayFooterViewDelegate {
-    
     func readCartoon(dayComicItemModel: dayComicItemModel?) {
         guard let item = dayComicItemModel else {
             return
         }
+        print(item)
     }
 }

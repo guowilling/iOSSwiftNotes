@@ -16,6 +16,7 @@ PODS:
   - SwipeMenuViewController (2.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - ESTabBarController-swift
   - FSPagerView
   - HandyJSON
@@ -53,6 +54,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwipeMenuViewController: 9f4c0a3e3ed63579662577f979585de422f053dc
 
-PODFILE CHECKSUM: 48b52fc4314f03eb0b8c0f377643352b73846fce
+PODFILE CHECKSUM: d8024c4959dd94a8e9c30689dea70aeb40b1c051
 
 COCOAPODS: 1.5.3

@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
-    
     fileprivate func setupUIAppearance() {
         let navBar = UINavigationBar.appearance()
         navBar.barTintColor = UIColor.white

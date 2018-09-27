@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
     
     private func setupContentView() {
         let types = loadAnchorTypes()
-        
         let frame = CGRect(x: 0, y: kNavigationBarH + kStatusBarH, width: kScreenW, height: kScreenH - kNavigationBarH - kStatusBarH - kTabBarH)
         let titles = types.map({ $0.title })
         let style = SRChannelsTitleStyle()
@@ -55,7 +54,6 @@ class HomeViewController: UIViewController {
 
 // MARK: - Actions
 //extension HomeViewController {
-//
 //    @objc fileprivate func collectItemAction() {
 //        let focusVC = FocusViewController()
 //        navigationController?.pushViewController(focusVC, animated: true)
