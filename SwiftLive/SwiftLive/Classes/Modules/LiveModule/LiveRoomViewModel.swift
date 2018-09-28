@@ -9,9 +9,7 @@
 import UIKit
 
 class LiveRoomViewModel: NSObject {
-    
     lazy var liveURLString: String = ""
-    
 }
 
 extension LiveRoomViewModel {
@@ -22,7 +20,7 @@ extension LiveRoomViewModel {
                                          "roomId": roomid,
                                          "signature": "f69f4d7d2feb3840f9294179cbcb913f",
                                          "userId": userId]
-        HTTPRequestTool.request(.get, urlString: URLString, parameters: parameters, completion: {
+        HTTPRequestTool.request(.get, URLString: URLString, parameters: parameters, completion: {
             result in
             guard let resultDict = result as? [String: Any] else {
                 return
@@ -38,7 +36,7 @@ extension LiveRoomViewModel {
     }
     
     fileprivate func loadOnliveURL(_ URLString: String, _ complection: @escaping () -> ()) {
-        HTTPRequestTool.request(.get, urlString: URLString, completion: { result in
+        HTTPRequestTool.request(.get, URLString: URLString, completion: { result in
             guard let resultDict = result as? [String: Any] else {
                 return
             }
@@ -49,5 +47,4 @@ extension LiveRoomViewModel {
             complection()
         })
     }
-    
 }

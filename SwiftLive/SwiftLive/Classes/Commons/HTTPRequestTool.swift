@@ -8,9 +8,9 @@ enum HTTPRequestType {
 }
 
 class HTTPRequestTool: NSObject {
-    class func request(_ type: HTTPRequestType, urlString: String, parameters: [String: Any]? = nil, completion: @escaping (_ result: Any) -> ()) {
+    class func request(_ type: HTTPRequestType, URLString: String, parameters: [String: Any]? = nil, completion: @escaping (_ result: Any) -> ()) {
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
-        Alamofire.request(urlString, method: method, parameters: parameters).responseJSON { (response) in
+        Alamofire.request(URLString, method: method, parameters: parameters).responseJSON { (response) in
             guard let result = response.result.value else {
                 print(response.result.error!)
                 return

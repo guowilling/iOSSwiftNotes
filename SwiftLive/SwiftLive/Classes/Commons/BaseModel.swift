@@ -9,6 +9,7 @@ class BaseModel: NSObject {
     
     init(dict: [String: Any]) {
         super.init()
+        
         setValuesForKeys(dict)
     }
     

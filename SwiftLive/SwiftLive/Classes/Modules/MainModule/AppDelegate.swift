@@ -45,20 +45,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     fileprivate func setupUIAppearance() {
-        let navBar = UINavigationBar.appearance()
-        navBar.barTintColor = UIColor.white
-        navBar.tintColor = UIColor.orange
-        navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orange]
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.barTintColor = UIColor.white
+        navBarAppearance.tintColor = UIColor.orange
+        navBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orange]
         
-        let tabBar = UITabBar.appearance()
-        tabBar.isTranslucent = false
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.isTranslucent = false
         
-        let tabBarItem = UITabBarItem.appearance()
-        tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.gray], for: UIControlState.normal)
-        tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: UIControlState.selected)
+        let tabBarItemAppearance = UITabBarItem.appearance()
+        tabBarItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.gray], for: UIControlState.normal)
+        tabBarItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: UIControlState.selected)
         
-        let headerLabel = UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
-        headerLabel.textColor = UIColor.orange
-        headerLabel.font = UIFont.systemFont(ofSize: 15.0)
+        let headerLabelAppearance = UILabel.appearance(whenContainedInInstancesOf: [UITableViewHeaderFooterView.self])
+        headerLabelAppearance.textColor = UIColor.orange
+        headerLabelAppearance.font = UIFont.systemFont(ofSize: 15.0)
     }
 }

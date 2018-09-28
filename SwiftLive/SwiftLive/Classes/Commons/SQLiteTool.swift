@@ -2,12 +2,10 @@
 import UIKit
 
 class SQLiteTool: NSObject {
-    
     fileprivate static var db: OpaquePointer? = nil
 }
 
 extension SQLiteTool {
-    
     @discardableResult
     class func openDB(_ filePath: String) -> Bool {
         let cFilePath = filePath.cString(using: String.Encoding.utf8)!
@@ -16,7 +14,6 @@ extension SQLiteTool {
 }
 
 extension SQLiteTool {
-    
     @discardableResult
     class func execSQL(_ sqlString: String) -> Bool {
         let cSQLString = sqlString.cString(using: String.Encoding.utf8)!
@@ -25,7 +22,6 @@ extension SQLiteTool {
 }
 
 extension SQLiteTool {
-    
     class func querySQL(_ sqlString: String) -> [[String: Any]] {
         var stmt: OpaquePointer? = nil
         sqlite3_prepare_v2(db, sqlString.cString(using: String.Encoding.utf8)!, -1, &stmt, nil)

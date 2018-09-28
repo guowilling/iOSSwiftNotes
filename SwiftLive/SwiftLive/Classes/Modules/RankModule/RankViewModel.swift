@@ -8,11 +8,10 @@ class RankViewModel: NSObject {
 }
 
 extension RankViewModel {
-    
     func loadRankDateData(_ type: RankType, _ complection: @escaping () -> ()) {
         let urlString = "http://qf.56.com/rank/v1/\(type.typeName).ios"
         let parameters = ["pageSize": 30, "type": type.typeNum]
-        HTTPRequestTool.request(.get, urlString: urlString, parameters: parameters, completion: { result in
+        HTTPRequestTool.request(.get, URLString: urlString, parameters: parameters, completion: { result in
             guard let resultDict = result as? [String: Any] else {
                 return
             }
@@ -41,7 +40,7 @@ extension RankViewModel {
                                          "signature": signature,
                                          "ts": ts,
                                          "weekly": rankType.typeNum - 1]
-        HTTPRequestTool.request(.get, urlString: urlString, parameters: parameters, completion: { result in
+        HTTPRequestTool.request(.get, URLString: urlString, parameters: parameters, completion: { result in
             guard let resultDict = result as? [String: Any] else {
                 return
             }
