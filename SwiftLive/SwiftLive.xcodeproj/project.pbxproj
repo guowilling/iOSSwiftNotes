@@ -265,14 +265,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		680724BA1F734EB10041AD4F /* LiveModule */ = {
+		680724BA1F734EB10041AD4F /* LiveRoom */ = {
 			isa = PBXGroup;
 			children = (
 				680724BB1F7350BF0041AD4F /* LiveRoomViewController.swift */,
 				680724BC1F7350BF0041AD4F /* LiveRoomViewController.xib */,
 				680724C11F7380610041AD4F /* LiveRoomViewModel.swift */,
 			);
-			path = LiveModule;
+			path = LiveRoom;
 			sourceTree = "<group>";
 		};
 		6890B3401F70EB4E00B0FA12 = {
@@ -314,7 +314,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6890B3951F71094700B0FA12 /* HomeModule */ = {
+		6890B3951F71094700B0FA12 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				6890B39D1F710A8800B0FA12 /* Home.storyboard */,
@@ -323,20 +323,10 @@
 				680724A11F7271610041AD4F /* ViewModels */,
 				680724A01F7271530041AD4F /* ViewControllers */,
 			);
-			path = HomeModule;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		6890B3961F71094700B0FA12 /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				6890B34C1F70EB4E00B0FA12 /* AppDelegate.swift */,
-				6890B3971F71098100B0FA12 /* MainViewController.swift */,
-				6890B3991F7109BA00B0FA12 /* GlobalNavigationController.swift */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
-		6890B39B1F710A6000B0FA12 /* DiscoverModule */ = {
+		6890B39B1F710A6000B0FA12 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
 				6890B39F1F710A9300B0FA12 /* Discover.storyboard */,
@@ -347,10 +337,10 @@
 				680724941F725DA50041AD4F /* DiscoverCollectionViewCell.swift */,
 				680724961F7260E90041AD4F /* DiscoverCollectionViewLaout.swift */,
 			);
-			path = DiscoverModule;
+			path = Discover;
 			sourceTree = "<group>";
 		};
-		6890B39C1F710A6000B0FA12 /* ProfileModule */ = {
+		6890B39C1F710A6000B0FA12 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				6890B3A41F710ABE00B0FA12 /* Profile.storyboard */,
@@ -364,10 +354,10 @@
 				680724B61F72779F0041AD4F /* ProfileMainViewController.swift */,
 				680724B81F7277AD0041AD4F /* ProfileSettingsViewController.swift */,
 			);
-			path = ProfileModule;
+			path = Profile;
 			sourceTree = "<group>";
 		};
-		6890B3A11F710AA100B0FA12 /* RankModule */ = {
+		6890B3A11F710AA100B0FA12 /* Rank */ = {
 			isa = PBXGroup;
 			children = (
 				6890B3A21F710AB700B0FA12 /* Rank.storyboard */,
@@ -376,7 +366,7 @@
 				6807248B1F72574B0041AD4F /* ViewModels */,
 				6807248A1F72573F0041AD4F /* ViewControllers */,
 			);
-			path = RankModule;
+			path = Rank;
 			sourceTree = "<group>";
 		};
 		6890B3C41F71125500B0FA12 /* SRChannelsControl */ = {
@@ -401,11 +391,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6E229BE7216E535900C43956 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6890B34C1F70EB4E00B0FA12 /* AppDelegate.swift */,
+				6890B3971F71098100B0FA12 /* MainViewController.swift */,
+				6890B3991F7109BA00B0FA12 /* GlobalNavigationController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		6EEC157A2131EC9B00AF209E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6EEC15812131ED3900AF209E /* Commons */,
+				6E229BE7216E535900C43956 /* Main */,
 				6EEC157B2131ECAD00AF209E /* Modules */,
+				6EEC15812131ED3900AF209E /* Commons */,
 				6EEC157E2131ED0000AF209E /* Extensions */,
 				6EEC157C2131ECC500AF209E /* Vendor */,
 			);
@@ -415,12 +416,11 @@
 		6EEC157B2131ECAD00AF209E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				6890B3961F71094700B0FA12 /* MainModule */,
-				6890B3951F71094700B0FA12 /* HomeModule */,
-				6890B3A11F710AA100B0FA12 /* RankModule */,
-				6890B39B1F710A6000B0FA12 /* DiscoverModule */,
-				6890B39C1F710A6000B0FA12 /* ProfileModule */,
-				680724BA1F734EB10041AD4F /* LiveModule */,
+				6890B3951F71094700B0FA12 /* Home */,
+				6890B3A11F710AA100B0FA12 /* Rank */,
+				6890B39B1F710A6000B0FA12 /* Discover */,
+				6890B39C1F710A6000B0FA12 /* Profile */,
+				680724BA1F734EB10041AD4F /* LiveRoom */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -477,7 +477,6 @@
 				6890B3461F70EB4E00B0FA12 /* Frameworks */,
 				6890B3471F70EB4E00B0FA12 /* Resources */,
 				44505CBB25C9A48BB9DDBC1D /* [CP] Embed Pods Frameworks */,
-				17F9ED8250BBEE8D0646464F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -549,21 +548,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17F9ED8250BBEE8D0646464F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftLive/Pods-SwiftLive-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		44505CBB25C9A48BB9DDBC1D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

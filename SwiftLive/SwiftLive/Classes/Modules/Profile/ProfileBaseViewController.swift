@@ -20,7 +20,7 @@ class ProfileBaseViewController: UIViewController {
 
 extension ProfileBaseViewController {
     
-    func setupUI() {
+    @objc func setupUI() {
         tableView.frame = view.bounds
         tableView.dataSource = self
         tableView.delegate = self
@@ -33,7 +33,7 @@ extension ProfileBaseViewController {
 
 extension ProfileBaseViewController {
     
-    func setupItemData() {
+    @objc func setupItemData() {
         
     }
 }

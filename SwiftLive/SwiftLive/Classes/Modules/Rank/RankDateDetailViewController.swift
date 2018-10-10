@@ -46,7 +46,7 @@ extension RankDateDetailViewController {
 
 extension RankDateDetailViewController {
     
-    func loadRankData() {
+    @objc func loadRankData() {
         rankVM.loadRankDateData(rankType, {
             self.tableView.reloadData()
         })
