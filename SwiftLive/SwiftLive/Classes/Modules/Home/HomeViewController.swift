@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
         searchFiled?.textColor = UIColor.white
         navigationItem.titleView = searchBar
         
-//        let collectImage = UIImage(named: "home_item_follow")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: collectImage, style: .plain, target: self, action: #selector(collectItemAction))
+        let collectImage = UIImage(named: "home_item_follow")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: collectImage, style: .plain, target: self, action: #selector(collectItemAction))
     }
     
     private func setupContentView() {
@@ -53,9 +53,9 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - Actions
-//extension HomeViewController {
-//    @objc fileprivate func collectItemAction() {
+extension HomeViewController {
+    @objc fileprivate func collectItemAction() {
 //        let focusVC = FocusViewController()
 //        navigationController?.pushViewController(focusVC, animated: true)
-//    }
-//}
+    }
+}
