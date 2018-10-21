@@ -1,9 +1,10 @@
 
 import UIKit
 
-protocol SRChannelsContentDelegate : class {
+protocol SRChannelsContentDelegate: class {
     
     func channelsContent(_ channelsContent: SRChannelsContent, scrollFromIndex fromIndex: Int, toIndex:Int, progress: CGFloat)
+    
     func channelsContent(_ channelsContent: SRChannelsContent, didEndScrollAtIndex atIndex : Int)
 }
 
@@ -25,15 +26,16 @@ class SRChannelsContent : UIView {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
-        collectionView.isPagingEnabled = true
-        collectionView.scrollsToTop = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.bounces = false
-        return collectionView
+        
+        let cv = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        cv.dataSource = self
+        cv.delegate = self
+        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kContentCellID)
+        cv.isPagingEnabled = true
+        cv.scrollsToTop = false
+        cv.showsHorizontalScrollIndicator = false
+        cv.bounces = false
+        return cv
     }()
     
     init(frame: CGRect, childVCs: [UIViewController], parentVC: UIViewController) {
@@ -51,7 +53,6 @@ class SRChannelsContent : UIView {
 }
 
 extension SRChannelsContent {
-
     fileprivate func setupUI() {
         for vc in childVCs {
             parentVC.addChildViewController(vc)
@@ -120,7 +121,6 @@ extension SRChannelsContent: UICollectionViewDelegate {
 }
 
 extension SRChannelsContent {
-    
     fileprivate func collectionViewEndScroll() {
         let atIndex = Int(collectionView.contentOffset.x / collectionView.bounds.width)
         delegate?.channelsContent(self, didEndScrollAtIndex: atIndex)
@@ -128,7 +128,6 @@ extension SRChannelsContent {
 }
 
 extension SRChannelsContent {
-    
     public func didSelectIndex(index: Int) {
         disableScroll = true
         let indexPath = IndexPath(item: index, section: 0)

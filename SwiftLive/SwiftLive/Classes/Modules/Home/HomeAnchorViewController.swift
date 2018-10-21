@@ -1,9 +1,9 @@
 
 import UIKit
 
-private let kEdgeMargin: CGFloat = 8.0
+fileprivate let kEdgeMargin: CGFloat = 7.5
 
-private let kAnchorCellID = "kAnchorCellID"
+fileprivate let kAnchorCellID = "kAnchorCellID"
 
 class HomeAnchorViewController: UIViewController {
     
@@ -19,13 +19,14 @@ class HomeAnchorViewController: UIViewController {
         layout.minimumLineSpacing = kEdgeMargin
         layout.minimumInteritemSpacing = kEdgeMargin
         layout.dataSource = self
-        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UINib(nibName: "HomeAnchorCell", bundle: nil), forCellWithReuseIdentifier: kAnchorCellID)
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        return collectionView
+        
+        let vc = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
+        vc.backgroundColor = UIColor.white
+        vc.dataSource = self
+        vc.delegate = self
+        vc.register(UINib(nibName: "HomeAnchorCell", bundle: nil), forCellWithReuseIdentifier: kAnchorCellID)
+        vc.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return vc
     }()
     
     override func viewDidLoad() {
@@ -38,7 +39,6 @@ class HomeAnchorViewController: UIViewController {
 }
 
 extension HomeAnchorViewController {
-    
     fileprivate func loadData(index: Int) {
         homeVM.loadAnchorData(anchorType: anchorType, index: index, completion: {
             self.collectionView.reloadData()
@@ -62,9 +62,9 @@ extension HomeAnchorViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let liveRoomVC = LiveRoomViewController()
-        liveRoomVC.anchorModel = homeVM.anchorModels[indexPath.item]
-        navigationController?.pushViewController(liveRoomVC, animated: true)
+        let lrVC = LiveRoomViewController()
+        lrVC.anchorModel = homeVM.anchorModels[indexPath.item]
+        navigationController?.pushViewController(lrVC, animated: true)
     }
     
     func waterfallLayout(_ layout: HomeWaterfallLayout, heightOfIndexPath indexPath: IndexPath) -> CGFloat {

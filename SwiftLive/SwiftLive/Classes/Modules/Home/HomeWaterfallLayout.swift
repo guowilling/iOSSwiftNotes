@@ -11,15 +11,15 @@ import UIKit
 class HomeWaterfallLayout: UICollectionViewFlowLayout {
     
     // MARK: - 公有属性
-    weak var dataSource : HomeWaterfallLayoutDataSource?
+    weak var dataSource: HomeWaterfallLayoutDataSource?
     
     // MARK: - 私有属性
     fileprivate lazy var attrsArray: [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
     
-    fileprivate lazy var colHeights: [CGFloat] = {
+    fileprivate lazy var colsHeight: [CGFloat] = {
         let cols = self.dataSource?.numberOfColsInWaterfallLayout?(self) ?? 2
-        var colHeights = Array(repeating: self.sectionInset.top, count: cols)
-        return colHeights
+        var colsHeight = Array(repeating: self.sectionInset.top, count: cols)
+        return colsHeight
     }()
     
     fileprivate var maxHeight: CGFloat = 0
@@ -28,7 +28,6 @@ class HomeWaterfallLayout: UICollectionViewFlowLayout {
 }
 
 extension HomeWaterfallLayout {
-    
     override func prepare() {
         super.prepare()
         
@@ -41,17 +40,17 @@ extension HomeWaterfallLayout {
             guard let height = dataSource?.waterfallLayout(self, heightOfIndexPath: indexPath) else {
                 fatalError("Height must be setted!")
             }
-            var minH = colHeights.min()! // 取出高度最小的列
-            let index = colHeights.index(of: minH)!
+            var minH = colsHeight.min()! // 取出高度最小的列
+            let index = colsHeight.index(of: minH)!
             minH = minH + height + minimumLineSpacing
-            colHeights[index] = minH
+            colsHeight[index] = minH
             
             layoutAttributes.frame = CGRect(x: self.sectionInset.left + (self.minimumInteritemSpacing + itemW) * CGFloat(index), y: minH - height - self.minimumLineSpacing, width: itemW, height: height)
             
             attrsArray.append(layoutAttributes)
         }
         
-        maxHeight = colHeights.max()!
+        maxHeight = colsHeight.max()!
         
         startIndex = itemCount
     }

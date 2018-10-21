@@ -15,7 +15,7 @@ extension UIColor {
     
     class func getGRBValue(_ color : UIColor) -> (CGFloat, CGFloat, CGFloat) {
         guard let components = color.cgColor.components else {
-            fatalError("Must RGB Color!")
+            fatalError("Must be RGB Color!")
         }
         return (components[0] * 255, components[1] * 255, components[2] * 255)
     }

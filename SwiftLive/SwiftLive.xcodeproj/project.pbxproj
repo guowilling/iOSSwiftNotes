@@ -72,7 +72,7 @@
 		6890B3D41F7118E100B0FA12 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6890B3D31F7118E100B0FA12 /* UIImageView+Kingfisher.swift */; };
 		6890B3D91F711A0500B0FA12 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6890B3D61F711A0500B0FA12 /* QHNormalEmotionSort.plist */; };
 		6890B3DA1F711A0500B0FA12 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6890B3D71F711A0500B0FA12 /* QHSohuGifSort.plist */; };
-		6890B3DB1F711A0500B0FA12 /* types.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6890B3D81F711A0500B0FA12 /* types.plist */; };
+		6890B3DB1F711A0500B0FA12 /* AnchorTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6890B3D81F711A0500B0FA12 /* AnchorTypes.plist */; };
 		6E63DC162128669800BAC05F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E63DC152128669800BAC05F /* LaunchScreen.storyboard */; };
 		6EEC15802131ED2B00AF209E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC157F2131ED2B00AF209E /* BaseModel.swift */; };
 /* End PBXBuildFile section */
@@ -148,7 +148,7 @@
 		6890B3D31F7118E100B0FA12 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		6890B3D61F711A0500B0FA12 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
 		6890B3D71F711A0500B0FA12 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
-		6890B3D81F711A0500B0FA12 /* types.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = types.plist; sourceTree = "<group>"; };
+		6890B3D81F711A0500B0FA12 /* AnchorTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnchorTypes.plist; sourceTree = "<group>"; };
 		6E63DC152128669800BAC05F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EEC157F2131ED2B00AF209E /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		ED1B77CD46A17F1D2078F5D6 /* Pods-SwiftLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLive/Pods-SwiftLive.debug.xcconfig"; sourceTree = "<group>"; };
@@ -372,10 +372,10 @@
 		6890B3C41F71125500B0FA12 /* SRChannelsControl */ = {
 			isa = PBXGroup;
 			children = (
-				6890B3C51F71125500B0FA12 /* SRChannelsContent.swift */,
 				6890B3C61F71125500B0FA12 /* SRChannelsControl.swift */,
-				6890B3C71F71125500B0FA12 /* SRChannelsTitle.swift */,
 				6890B3C81F71125500B0FA12 /* SRChannelsTitleStyle.swift */,
+				6890B3C71F71125500B0FA12 /* SRChannelsTitle.swift */,
+				6890B3C51F71125500B0FA12 /* SRChannelsContent.swift */,
 				6890B3C91F71125500B0FA12 /* UIColor+SRChannelsControl.swift */,
 			);
 			path = SRChannelsControl;
@@ -386,7 +386,7 @@
 			children = (
 				6890B3D61F711A0500B0FA12 /* QHNormalEmotionSort.plist */,
 				6890B3D71F711A0500B0FA12 /* QHSohuGifSort.plist */,
-				6890B3D81F711A0500B0FA12 /* types.plist */,
+				6890B3D81F711A0500B0FA12 /* AnchorTypes.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -494,7 +494,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = SR;
 				TargetAttributes = {
 					6890B3481F70EB4E00B0FA12 = {
@@ -537,7 +537,7 @@
 				680724BE1F7350BF0041AD4F /* LiveRoomViewController.xib in Resources */,
 				6890B3A01F710A9300B0FA12 /* Discover.storyboard in Resources */,
 				6890B3D91F711A0500B0FA12 /* QHNormalEmotionSort.plist in Resources */,
-				6890B3DB1F711A0500B0FA12 /* types.plist in Resources */,
+				6890B3DB1F711A0500B0FA12 /* AnchorTypes.plist in Resources */,
 				6890B3A51F710ABE00B0FA12 /* Profile.storyboard in Resources */,
 				6890B39E1F710A8800B0FA12 /* Home.storyboard in Resources */,
 				6890B3C11F71114400B0FA12 /* HomeAnchorCell.xib in Resources */,
@@ -658,15 +658,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -708,15 +716,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

@@ -28,7 +28,6 @@ class SRChannelsControl: UIView {
 }
 
 extension SRChannelsControl {
-    
     fileprivate func setupUI() {
         let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: titleStyle.titleHeight)
         channelsTitle = SRChannelsTitle(frame: titleFrame, titles: titles, titleStyle: titleStyle)
@@ -43,7 +42,6 @@ extension SRChannelsControl {
 }
 
 extension SRChannelsControl: SRChannelsContentDelegate {
-    
     func channelsContent(_ channelsContent: SRChannelsContent, scrollFromIndex fromIndex: Int, toIndex: Int, progress: CGFloat) {
         channelsTitle.scroll(fromIndex: fromIndex, toIndex: toIndex, progress: progress)
     }
@@ -54,7 +52,6 @@ extension SRChannelsControl: SRChannelsContentDelegate {
 }
 
 extension SRChannelsControl: SRChannelsTitleDeleate {
-    
     func channelsTitle(_ channelsTitle: SRChannelsTitle, didSelectIndex index: Int) {
         channelsContent.didSelectIndex(index: index)
     }

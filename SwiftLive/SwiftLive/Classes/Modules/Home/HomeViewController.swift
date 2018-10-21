@@ -9,53 +9,63 @@ class HomeViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         
         setupNavigationBar()
-        
+    
         setupContentView()
     }
     
     private func setupNavigationBar() {
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 100, height: 32))
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         searchBar.placeholder = "主播昵称/房间号"
         searchBar.searchBarStyle = .minimal
         let searchFiled = searchBar.value(forKey: "_searchField") as? UITextField
-        searchFiled?.textColor = UIColor.white
+        searchFiled?.textColor = UIColor.black
         navigationItem.titleView = searchBar
+        if #available(iOS 11.0, *) {
+            searchBar.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        }
         
-        let collectImage = UIImage(named: "home_item_follow")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: collectImage, style: .plain, target: self, action: #selector(collectItemAction))
+        let followImage = UIImage(named: "home_item_follow")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: followImage, style: .plain, target: self, action: #selector(followItemAction))
     }
     
     private func setupContentView() {
-        let types = loadAnchorTypes()
-        let frame = CGRect(x: 0, y: kNavigationBarH + kStatusBarH, width: kScreenW, height: kScreenH - kNavigationBarH - kStatusBarH - kTabBarH)
-        let titles = types.map({ $0.title })
-        let style = SRChannelsTitleStyle()
-        style.isScrollEnabled = true
+        let frame = CGRect(x: 0,
+                           y: kStatusBarH + kNavBarH,
+                           width: kScreenW,
+                           height: kScreenH - kStatusBarH - kNavBarH - kTabBarH)
+       
+        let anchorTypes = loadAnchorTypes()
+        let titles = anchorTypes.map({ $0.title })
+       
         var childVCs = [HomeAnchorViewController]()
-        for type in types {
+        for anchorType in anchorTypes {
             let anchorVC = HomeAnchorViewController()
-            anchorVC.anchorType = type
+            anchorVC.anchorType = anchorType
             childVCs.append(anchorVC)
         }
+        
+        let style = SRChannelsTitleStyle()
+        style.isScrollEnabled = true
+        
         let channelsControl = SRChannelsControl(frame: frame, titles: titles, titleStyle: style, childVCs: childVCs, parentVC: self)
         view.addSubview(channelsControl)
-    }
-    
-    private func loadAnchorTypes() -> [AnchorType] {
-        let path = Bundle.main.path(forResource: "types.plist", ofType: nil)!
-        let typeDics = NSArray(contentsOfFile: path) as! [[String: Any]]
-        var typeModels = [AnchorType]()
-        for dict in typeDics {
-            typeModels.append(AnchorType(dict: dict))
-        }
-        return typeModels
     }
 }
 
 // MARK: - Actions
 extension HomeViewController {
-    @objc fileprivate func collectItemAction() {
+    @objc fileprivate func followItemAction() {
 //        let focusVC = FocusViewController()
 //        navigationController?.pushViewController(focusVC, animated: true)
+    }
+    
+    fileprivate func loadAnchorTypes() -> [AnchorType] {
+        let filePath = Bundle.main.path(forResource: "AnchorTypes.plist", ofType: nil)!
+        let dicts = NSArray(contentsOfFile: filePath) as! [[String: Any]]
+        var models = [AnchorType]()
+        for dict in dicts {
+            models.append(AnchorType(dict: dict))
+        }
+        return models
     }
 }
