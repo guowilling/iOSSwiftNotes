@@ -44,7 +44,6 @@ class LiveRoomViewController: UIViewController {
         
         player?.shutdown()
     }
-    
 }
 
 extension LiveRoomViewController {
@@ -69,39 +68,36 @@ extension LiveRoomViewController {
         roomNumLabel.text = "房间号: \(anchorModel?.roomid ?? 0)"
         onlineLabel.text = "\(anchorModel?.focus ?? 0)"
     }
-    
 }
 
 extension LiveRoomViewController {
     
     fileprivate func loadRoomInfo() {
         if let roomid = anchorModel?.roomid, let uid = anchorModel?.uid {
-            print(roomid, uid)
-            liveRoomVM.loadLiveURL(roomid, uid, {
+            print("roomid = \(roomid), uid = \(uid)")
+            liveRoomVM.loadLiveURL(roomid, uid) {
                 self.playLive()
-            })
+            }
         }
     }
     
     func playLive() {
-        IJKFFMoviePlayerController.setLogReport(false)
-        
-        let url = URL(string: liveRoomVM.liveURLString)
-        player = IJKFFMoviePlayerController(contentURL: url, with: nil)
-        
+        let liveURL = URL(string: liveRoomVM.liveURLString)
+        player = IJKFFMoviePlayerController(contentURL: liveURL, with: nil)
         if anchorModel?.push == 1 {
-            let screenW = UIScreen.main.bounds.width
-            player?.view.frame = CGRect(x: 0, y: 150, width: screenW, height: screenW * 3 / 4)
+            player?.view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_WIDTH * 3 / 4)
+            player?.view.center.y = SCREEN_HEIGHT * 0.5
         } else {
             player?.view.frame = view.bounds
         }
-        
         bgImageView.insertSubview(player!.view, at: 1)
         
         DispatchQueue.global().async {
             self.player?.prepareToPlay()
             self.player?.play()
         }
+        
+        IJKFFMoviePlayerController.setLogReport(false)
     }
     
 }
@@ -114,13 +110,12 @@ extension LiveRoomViewController {
     
     @IBAction func focusBtnClick(btn : UIButton) {
         btn.isSelected = !btn.isSelected
-        if btn.isSelected {
+//        if btn.isSelected {
 //            anchor?.inserIntoDB()
-        } else {
+//        } else {
 //            anchor?.deleteFromDB()
-        }
+//        }
     }
-    
 }
 
 extension LiveRoomViewController {
@@ -144,5 +139,4 @@ extension LiveRoomViewController {
     @IBAction func chatAction() {
 
     }
-    
 }

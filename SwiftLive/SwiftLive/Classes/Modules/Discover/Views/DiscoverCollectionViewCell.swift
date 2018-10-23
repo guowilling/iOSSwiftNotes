@@ -13,10 +13,13 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
             guard let anchorModel = anchorModel else {
                 return
             }
-            onlineLabel.text = "\(anchorModel.focus)人观看"
-            nickNameLabel.text = anchorModel.name
             iconImageView.setImage(anchorModel.pic51, "home_pic_default")
+            
             liveImageView.isHidden = anchorModel.live == 0
+            
+            nickNameLabel.text = anchorModel.name
+            
+            onlineLabel.text = "\(anchorModel.focus)人观看"
         }
     }
 }

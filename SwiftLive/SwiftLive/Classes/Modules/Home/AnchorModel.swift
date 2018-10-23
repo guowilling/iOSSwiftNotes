@@ -8,11 +8,9 @@ class AnchorModel: BaseModel {
     var name: String = ""
     var pic51: String = ""
     var pic74: String = ""
-    
     var live: Int = 0 // 是否正在直播
     var push: Int = 0 // 直播方式
     var focus: Int = 0 // 关注数量
-    
     var isEvenIndex: Bool = false
 }
 

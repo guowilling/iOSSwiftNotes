@@ -28,6 +28,7 @@ class HomeWaterfallLayout: UICollectionViewFlowLayout {
 }
 
 extension HomeWaterfallLayout {
+    
     override func prepare() {
         super.prepare()
         
@@ -45,7 +46,10 @@ extension HomeWaterfallLayout {
             minH = minH + height + minimumLineSpacing
             colsHeight[index] = minH
             
-            layoutAttributes.frame = CGRect(x: self.sectionInset.left + (self.minimumInteritemSpacing + itemW) * CGFloat(index), y: minH - height - self.minimumLineSpacing, width: itemW, height: height)
+            layoutAttributes.frame = CGRect(x: self.sectionInset.left + (self.minimumInteritemSpacing + itemW) * CGFloat(index),
+                                            y: minH - height - self.minimumLineSpacing,
+                                            width: itemW,
+                                            height: height)
             
             attrsArray.append(layoutAttributes)
         }
@@ -54,9 +58,6 @@ extension HomeWaterfallLayout {
         
         startIndex = itemCount
     }
-}
-
-extension HomeWaterfallLayout {
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return attrsArray

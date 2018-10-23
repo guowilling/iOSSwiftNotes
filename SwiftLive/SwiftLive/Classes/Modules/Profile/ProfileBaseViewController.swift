@@ -1,11 +1,11 @@
 
-private let kProfileItemCellID = "profileItemCellID"
+private let ProfileItemCellID = "ProfileItemCell"
 
 import UIKit
 
 class ProfileBaseViewController: UIViewController {
-
-    lazy var tableView: UITableView = UITableView()
+    
+    lazy var mainTableView: UITableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.grouped)
     
     lazy var sections: [ProfileItemSectionModel] = [ProfileItemSectionModel]()
     
@@ -19,23 +19,17 @@ class ProfileBaseViewController: UIViewController {
 }
 
 extension ProfileBaseViewController {
-    
     @objc func setupUI() {
-        tableView.frame = view.bounds
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib(nibName: "ProfileItemCell", bundle: nil), forCellReuseIdentifier: kProfileItemCellID)
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 55
-        view.addSubview(tableView)
+        mainTableView.frame = view.bounds
+        mainTableView.dataSource = self
+        mainTableView.delegate = self
+        mainTableView.rowHeight = 50
+        mainTableView.separatorStyle = .none
+        mainTableView.register(UINib(nibName: "ProfileItemCell", bundle: nil), forCellReuseIdentifier: ProfileItemCellID)
+        view.addSubview(mainTableView)
     }
-}
-
-extension ProfileBaseViewController {
     
-    @objc func setupItemData() {
-        
-    }
+    @objc func setupItemData() { }
 }
 
 extension ProfileBaseViewController: UITableViewDataSource, UITableViewDelegate {
@@ -49,7 +43,7 @@ extension ProfileBaseViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kProfileItemCellID, for: indexPath) as! ProfileItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileItemCellID, for: indexPath) as! ProfileItemCell
         let section = sections[indexPath.section]
         cell.itemModel = section.items[indexPath.row]
         return cell
@@ -61,5 +55,17 @@ extension ProfileBaseViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return sections[section].sectionHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 }

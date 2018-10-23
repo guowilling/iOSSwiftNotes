@@ -26,7 +26,7 @@
 		680724911F725BB70041AD4F /* CarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724901F725BB70041AD4F /* CarouselModel.swift */; };
 		680724931F725D810041AD4F /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724921F725D810041AD4F /* DiscoverTableViewCell.swift */; };
 		680724951F725DA50041AD4F /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724941F725DA50041AD4F /* DiscoverCollectionViewCell.swift */; };
-		680724971F7260E90041AD4F /* DiscoverCollectionViewLaout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724961F7260E90041AD4F /* DiscoverCollectionViewLaout.swift */; };
+		680724971F7260E90041AD4F /* DiscoverCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724961F7260E90041AD4F /* DiscoverCollectionViewLayout.swift */; };
 		6807249B1F72661D0041AD4F /* SRCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6807249A1F72661D0041AD4F /* SRCarouselView.m */; };
 		680724A91F7276F10041AD4F /* ProfileItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724A81F7276F10041AD4F /* ProfileItemModel.swift */; };
 		680724AB1F7277040041AD4F /* ProfileItemSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680724AA1F7277040041AD4F /* ProfileItemSectionModel.swift */; };
@@ -98,7 +98,7 @@
 		680724901F725BB70041AD4F /* CarouselModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselModel.swift; sourceTree = "<group>"; };
 		680724921F725D810041AD4F /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		680724941F725DA50041AD4F /* DiscoverCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewCell.swift; sourceTree = "<group>"; };
-		680724961F7260E90041AD4F /* DiscoverCollectionViewLaout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewLaout.swift; sourceTree = "<group>"; };
+		680724961F7260E90041AD4F /* DiscoverCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCollectionViewLayout.swift; sourceTree = "<group>"; };
 		680724991F72661D0041AD4F /* SRCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCarouselView.h; sourceTree = "<group>"; };
 		6807249A1F72661D0041AD4F /* SRCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCarouselView.m; sourceTree = "<group>"; };
 		6807249F1F7269D20041AD4F /* SwiftLive-Brdging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftLive-Brdging-Header.h"; sourceTree = "<group>"; };
@@ -330,12 +330,10 @@
 			isa = PBXGroup;
 			children = (
 				6890B39F1F710A9300B0FA12 /* Discover.storyboard */,
-				6890B3AA1F710AFF00B0FA12 /* DiscoverViewController.swift */,
-				6807248E1F725A620041AD4F /* DiscoverViewModel.swift */,
-				680724901F725BB70041AD4F /* CarouselModel.swift */,
-				680724921F725D810041AD4F /* DiscoverTableViewCell.swift */,
-				680724941F725DA50041AD4F /* DiscoverCollectionViewCell.swift */,
-				680724961F7260E90041AD4F /* DiscoverCollectionViewLaout.swift */,
+				6EF81914217E30B600555135 /* ViewModels */,
+				6EF81913217E30A400555135 /* Models */,
+				6EF81912217E309700555135 /* Views */,
+				6EF81911217E307A00555135 /* ViewControllers */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -344,15 +342,11 @@
 			isa = PBXGroup;
 			children = (
 				6890B3A41F710ABE00B0FA12 /* Profile.storyboard */,
-				680724A81F7276F10041AD4F /* ProfileItemModel.swift */,
-				680724AA1F7277040041AD4F /* ProfileItemSectionModel.swift */,
-				680724AC1F7277250041AD4F /* ProfileHeaderView.swift */,
-				680724AE1F72772E0041AD4F /* ProfileHeaderView.xib */,
-				680724B01F7277680041AD4F /* ProfileItemCell.swift */,
-				680724B11F7277680041AD4F /* ProfileItemCell.xib */,
 				680724B41F7277830041AD4F /* ProfileBaseViewController.swift */,
 				680724B61F72779F0041AD4F /* ProfileMainViewController.swift */,
 				680724B81F7277AD0041AD4F /* ProfileSettingsViewController.swift */,
+				6EF81916217F83D500555135 /* Views */,
+				6EF81915217F83CB00555135 /* Models */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -452,6 +446,60 @@
 				680724C51F73A5800041AD4F /* SQLiteTool.swift */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		6EF81911217E307A00555135 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6890B3AA1F710AFF00B0FA12 /* DiscoverViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6EF81912217E309700555135 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				680724921F725D810041AD4F /* DiscoverTableViewCell.swift */,
+				680724941F725DA50041AD4F /* DiscoverCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6EF81913217E30A400555135 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				680724901F725BB70041AD4F /* CarouselModel.swift */,
+				680724961F7260E90041AD4F /* DiscoverCollectionViewLayout.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6EF81914217E30B600555135 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6807248E1F725A620041AD4F /* DiscoverViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6EF81915217F83CB00555135 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				680724AA1F7277040041AD4F /* ProfileItemSectionModel.swift */,
+				680724A81F7276F10041AD4F /* ProfileItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6EF81916217F83D500555135 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				680724AC1F7277250041AD4F /* ProfileHeaderView.swift */,
+				680724AE1F72772E0041AD4F /* ProfileHeaderView.xib */,
+				680724B01F7277680041AD4F /* ProfileItemCell.swift */,
+				680724B11F7277680041AD4F /* ProfileItemCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FD72B68BEB7FC2653EAEEB5E /* Frameworks */ = {
@@ -622,7 +670,7 @@
 				6890B3A91F710AF700B0FA12 /* RankViewController.swift in Sources */,
 				680724B21F7277680041AD4F /* ProfileItemCell.swift in Sources */,
 				680724751F7207DD0041AD4F /* RankDateDetailViewController.swift in Sources */,
-				680724971F7260E90041AD4F /* DiscoverCollectionViewLaout.swift in Sources */,
+				680724971F7260E90041AD4F /* DiscoverCollectionViewLayout.swift in Sources */,
 				680724951F725DA50041AD4F /* DiscoverCollectionViewCell.swift in Sources */,
 				6890B3BD1F7110F000B0FA12 /* AnchorModel.swift in Sources */,
 				680724C21F7380610041AD4F /* LiveRoomViewModel.swift in Sources */,

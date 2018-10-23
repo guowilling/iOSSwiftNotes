@@ -12,8 +12,11 @@ class HomeAnchorCell: UICollectionViewCell {
     var anchorModel: AnchorModel? {
         didSet {
             albumImageView.setImage(anchorModel!.isEvenIndex ? anchorModel?.pic74 : anchorModel?.pic51, "home_pic_default")
+            
             liveImageView.isHidden = anchorModel?.live == 0
+            
             nickNameLabel.text = anchorModel?.name
+            
             onlinePeopleBtn.setTitle("\(anchorModel?.focus ?? 0)", for: .normal)
         }
     }

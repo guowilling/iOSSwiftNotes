@@ -6,7 +6,7 @@ class RankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let frame = CGRect(x: 0, y: 20, width: kScreenW, height: kScreenH - 20)
+        let frame = CGRect(x: 0, y: 20, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 20)
         let titles = ["明星榜", "富豪榜", "人气榜", "周星榜"]
         let style = SRChannelsTitleStyle()
         style.isBottomLineDisplayed = true

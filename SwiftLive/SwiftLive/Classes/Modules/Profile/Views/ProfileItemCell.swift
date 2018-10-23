@@ -8,6 +8,7 @@ class ProfileItemCell: UITableViewCell {
     @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var onSwitch: UISwitch!
+    
     @IBOutlet weak var contentLabelLeftCons: NSLayoutConstraint!
     
     var itemModel: ProfileItemModel? {
@@ -29,7 +30,7 @@ class ProfileItemCell: UITableViewCell {
                 onSwitch.isHidden = true
                 hintLabel.isHidden = false
                 hintLabel.text = itemModel.hintText
-            case .onswitch:
+            case .onSwitch:
                 onSwitch.isHidden = false
                 hintLabel.isHidden = true
                 arrowImageView.isHidden = true

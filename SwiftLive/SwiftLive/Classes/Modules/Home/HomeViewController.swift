@@ -30,9 +30,9 @@ class HomeViewController: UIViewController {
     
     private func setupContentView() {
         let frame = CGRect(x: 0,
-                           y: kStatusBarH + kNavBarH,
-                           width: kScreenW,
-                           height: kScreenH - kStatusBarH - kNavBarH - kTabBarH)
+                           y: STATUS_BAR_H + NAV_BAR_H,
+                           width: SCREEN_WIDTH,
+                           height: SCREEN_HEIGHT - STATUS_BAR_H - NAV_BAR_H - TAB_BAR_H)
        
         let anchorTypes = loadAnchorTypes()
         let titles = anchorTypes.map({ $0.title })

@@ -11,7 +11,7 @@ class DiscoverTableViewCell: UITableViewCell {
     
     fileprivate var currentIndex: Int = 0
     
-    var cellDidSelected: ((_ anchor: AnchorModel) -> ())?
+    var didSelectItem: ((_ anchor: AnchorModel) -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,8 +46,8 @@ extension DiscoverTableViewCell : UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cellDidSelected = cellDidSelected {
-            cellDidSelected(anchorData![indexPath.item])
+        if let didSelectItem = didSelectItem {
+            didSelectItem(anchorData![indexPath.item])
         }
     }
 }

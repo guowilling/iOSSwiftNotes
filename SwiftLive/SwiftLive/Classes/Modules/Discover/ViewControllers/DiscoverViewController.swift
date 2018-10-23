@@ -14,32 +14,32 @@ class DiscoverViewController: UIViewController {
         
         setupFooterView()
         
-        tableView.rowHeight = kScreenW * 1.5
+        tableView.rowHeight = SCREEN_WIDTH * 1.5
     }
 }
 
 extension DiscoverViewController {
-
+    
     fileprivate func setupHeaderCarouselView() {
         discoverVM.loadCarouselData {
             var picUrls = [NSString]()
             for carouselModel in self.discoverVM.carouselModels {
                 picUrls.append(carouselModel.picUrl as NSString)
             }
-            let carsouselView = SRCarouselView.sr_carouselView(withImageArrary: picUrls, describe: [], placeholderImage: UIImage(named: "Img_default"), block: { (index) in
+            let carsouselView = SRCarouselView.sr_carouselView(withImageArrary: picUrls, describe: [], placeholderImage: nil, block: { (index) in
                 print(index)
             })
-            let carouseViewH = kScreenW * 0.5
-            carsouselView?.frame = CGRect(x: 0, y: -carouseViewH, width: kScreenW, height: carouseViewH)
+            let carouseViewH = SCREEN_WIDTH * 0.5
+            carsouselView?.frame = CGRect(x: 0, y: -carouseViewH, width: SCREEN_WIDTH, height: carouseViewH)
             self.tableView.tableHeaderView = carsouselView
         }
     }
     
     fileprivate func setupFooterView() {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 80))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 80))
         let btn = UIButton(frame: CGRect.zero)
-        btn.frame.size = CGSize(width: kScreenW * 0.5, height: 40)
-        btn.center = CGPoint(x: kScreenW * 0.5, y: 40)
+        btn.frame.size = CGSize(width: SCREEN_WIDTH * 0.5, height: 40)
+        btn.center = CGPoint(x: SCREEN_WIDTH * 0.5, y: 40)
         btn.setTitle("换一换", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
@@ -55,7 +55,7 @@ extension DiscoverViewController {
     @objc private func switchGuessAnchor() {
         let cell = tableView.visibleCells.first as? DiscoverTableViewCell
         cell?.reloadData()
-        let offset = CGPoint(x: 0, y: kScreenW * 0.5 - 64)
+        let offset = CGPoint(x: 0, y: SCREEN_WIDTH * 0.5 - 64)
         tableView.setContentOffset(offset, animated: true)
     }
 }
@@ -68,16 +68,16 @@ extension DiscoverViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiscoverTableViewCellID", for: indexPath) as! DiscoverTableViewCell
-        cell.cellDidSelected = { (anchor: AnchorModel) in
-            let liveRoomVC = LiveRoomViewController()
-            liveRoomVC.anchorModel = anchor
-            self.navigationController?.pushViewController(liveRoomVC, animated: true)
+        cell.didSelectItem = { (anchor: AnchorModel) in
+            let lrVC = LiveRoomViewController()
+            lrVC.anchorModel = anchor
+            self.navigationController?.pushViewController(lrVC, animated: true)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 40))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 40))
         let headerLabel = UILabel(frame: headerView.bounds)
         headerLabel.text = "猜你喜欢"
         headerLabel.textAlignment = .center

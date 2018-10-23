@@ -28,23 +28,22 @@ class ProfileSettingsViewController: ProfileBaseViewController {
 }
 
 extension ProfileSettingsViewController {
-    
     override func setupItemData() {
         let section0Model = ProfileItemSectionModel()
-        section0Model.sectionHeaderHeight = 5
+        section0Model.sectionHeaderHeight = 10
         let section0Item0 = ProfileItemModel(content: "开播提醒")
-        section0Item0.accessoryType = .onswitch
+        section0Item0.accessoryType = .onSwitch
         section0Model.items.append(section0Item0)
         let section0Item1 = ProfileItemModel(content: "移动流量提醒")
-        section0Item1.accessoryType = .onswitch
+        section0Item1.accessoryType = .onSwitch
         section0Model.items.append(section0Item1)
         let section0Item2 = ProfileItemModel(content: "网络环境优化")
-        section0Item2.accessoryType = .onswitch
+        section0Item2.accessoryType = .onSwitch
         section0Model.items.append(section0Item2)
         sections.append(section0Model)
         
         let section1Model = ProfileItemSectionModel()
-        section1Model.sectionHeaderHeight = 5
+        section1Model.sectionHeaderHeight = 10
         let section1Item0 = ProfileItemModel(content: "绑定手机", hint : "未绑定")
         section1Item0.accessoryType = .arrowHint
         section1Model.items.append(section1Item0)
@@ -58,6 +57,6 @@ extension ProfileSettingsViewController {
         section1Model.items.append(section1Item4)
         sections.append(section1Model)
         
-        tableView.reloadData()
+        mainTableView.reloadData()
     }
 }

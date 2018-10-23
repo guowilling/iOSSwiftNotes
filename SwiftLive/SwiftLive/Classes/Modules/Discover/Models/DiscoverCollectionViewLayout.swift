@@ -1,7 +1,7 @@
 
 import UIKit
 
-class DiscoverCollectionViewLaout: UICollectionViewFlowLayout {
+class DiscoverCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         

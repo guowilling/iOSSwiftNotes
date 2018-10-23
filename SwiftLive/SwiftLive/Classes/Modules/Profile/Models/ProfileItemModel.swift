@@ -4,7 +4,7 @@ import UIKit
 enum SettingAccessoryType {
     case arrow
     case arrowHint
-    case onswitch
+    case onSwitch
 }
 
 class ProfileItemModel: NSObject {

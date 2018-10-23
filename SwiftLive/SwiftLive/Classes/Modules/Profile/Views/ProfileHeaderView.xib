@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,10 +18,10 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_background" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-ur-wKM">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Easy" translatesAutoresizingMaskIntoConstraints="NO" id="ldU-tg-Xee">
-                    <rect key="frame" x="148" y="30" width="80" height="80"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine-n" translatesAutoresizingMaskIntoConstraints="NO" id="ldU-tg-Xee">
+                    <rect key="frame" x="155.5" y="30" width="64" height="64"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="3Da-bD-Kob"/>
+                        <constraint firstAttribute="width" constant="64" id="3Da-bD-Kob"/>
                         <constraint firstAttribute="width" secondItem="ldU-tg-Xee" secondAttribute="height" multiplier="1:1" id="eol-sx-ubv"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -33,13 +32,13 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="961-fC-gTI">
-                    <rect key="frame" x="155" y="120" width="66" height="18"/>
+                    <rect key="frame" x="154.5" y="104" width="66" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100/1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOw-UY-79g">
-                    <rect key="frame" x="157.5" y="148" width="61" height="17"/>
+                    <rect key="frame" x="157" y="132" width="61" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -63,7 +62,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Easy" width="16" height="16"/>
+        <image name="mine-n" width="25" height="19"/>
         <image name="mine_background" width="375" height="225"/>
     </resources>
 </document>

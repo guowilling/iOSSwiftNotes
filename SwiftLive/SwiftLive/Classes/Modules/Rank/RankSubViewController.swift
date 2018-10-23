@@ -29,7 +29,7 @@ class RankSubViewController: UIViewController {
 
 extension RankSubViewController {
     func setupUI(_ titles: [String]) {
-        let frame = CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - 64 - 44)
+        let frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64 - 44)
         let titles = titles
         let style = SRChannelsTitleStyle()
         style.titleNormalColor = UIColor(sr_colorWithR: 0, G: 0, B: 0)

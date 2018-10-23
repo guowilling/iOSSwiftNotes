@@ -14,7 +14,6 @@ class ProfileHeaderView: UIView {
 }
 
 extension ProfileHeaderView {
-    
     class func loadFromNib() -> ProfileHeaderView {
         return Bundle.main.loadNibNamed("ProfileHeaderView", owner: nil, options: nil)?.first as! ProfileHeaderView
     }

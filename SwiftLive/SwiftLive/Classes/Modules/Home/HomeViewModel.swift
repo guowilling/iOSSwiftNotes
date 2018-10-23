@@ -6,10 +6,9 @@ class HomeViewModel: NSObject {
 }
 
 extension HomeViewModel {
-    
     func loadAnchorData(anchorType: AnchorType, index: Int, completion: @escaping () -> ()) {
-//        HTTPRequestTool.request(<#T##type: HTTPRequestType##HTTPRequestType#>, urlString: <#T##String#>, completion: <#T##(Any) -> ()#>)
-        HTTPRequestTool.request(.get, URLString: "http://qf.56.com/home/v4/moreAnchor.ios", parameters: ["type": anchorType.type, "index": index, "size": 48], completion: { (result) -> Void in
+        let params = ["type": anchorType.type, "index": index, "size": 48]
+        HTTPRequestTool.request(.get, URLString: "http://qf.56.com/home/v4/moreAnchor.ios", parameters: params, completion: { (result) -> Void in
             guard let resultDict = result as? [String: Any] else {
                 return
             }
@@ -20,9 +19,9 @@ extension HomeViewModel {
                 return
             }
             for (index, anchorDict) in anchorsDict.enumerated() {
-                let anchor = AnchorModel(dict: anchorDict)
-                anchor.isEvenIndex = index % 2 == 0
-                self.anchorModels.append(anchor)
+                let anchorModel = AnchorModel(dict: anchorDict)
+                anchorModel.isEvenIndex = index % 2 == 0
+                self.anchorModels.append(anchorModel)
             }
             completion()
         })

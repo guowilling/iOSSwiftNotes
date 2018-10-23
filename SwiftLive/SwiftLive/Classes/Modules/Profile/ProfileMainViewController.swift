@@ -3,10 +3,12 @@ import UIKit
 
 class ProfileMainViewController: ProfileBaseViewController {
 
-    fileprivate lazy var headerView: ProfileHeaderView = ProfileHeaderView.loadFromNib()
+    fileprivate lazy var profileHeader: ProfileHeaderView = ProfileHeaderView.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        automaticallyAdjustsScrollViewInsets = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,7 +22,6 @@ class ProfileMainViewController: ProfileBaseViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
-
 }
 
 extension ProfileMainViewController {
@@ -28,15 +29,13 @@ extension ProfileMainViewController {
     override func setupUI() {
         super.setupUI()
         
-        automaticallyAdjustsScrollViewInsets = false
-        
-        headerView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 200)
-        tableView.tableHeaderView = headerView
+        profileHeader.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 200)
+        mainTableView.tableHeaderView = profileHeader
     }
     
     override func setupItemData() {
         let section0Model = ProfileItemSectionModel()
-        section0Model.sectionHeaderHeight = 5
+        section0Model.sectionHeaderHeight = 0.1
         
         let section0Item0 = ProfileItemModel(icon: "mine_follow", content: "我的关注")
         section0Model.items.append(section0Item0)
@@ -53,19 +52,18 @@ extension ProfileMainViewController {
         sections.append(section0Model)
         
         let section1Model = ProfileItemSectionModel()
-        section1Model.sectionHeaderHeight = 5
+        section1Model.sectionHeaderHeight = 10
         let section1Mode0 = ProfileItemModel(icon: "mine_edit", content: "编辑资料")
         section1Model.items.append(section1Mode0)
         let section1Mode1 = ProfileItemModel(icon: "mine_set", content: "设置")
         section1Model.items.append(section1Mode1)
         sections.append(section1Model)
         
-        tableView.reloadData()
+        mainTableView.reloadData()
     }
 }
 
 extension ProfileMainViewController {
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         

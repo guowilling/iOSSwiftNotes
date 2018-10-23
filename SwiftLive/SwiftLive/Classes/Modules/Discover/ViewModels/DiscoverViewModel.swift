@@ -6,7 +6,7 @@ class DiscoverViewModel: HomeViewModel {
 }
 
 extension DiscoverViewModel {
-    func loadDiscoverData(_ complection : @escaping () -> ()) {
+    func loadDiscoverData(_ complection: @escaping () -> ()) {
         HTTPRequestTool.request(.get, URLString: "http://qf.56.com/home/v4/guess.ios", parameters: ["count": 27], completion: { (result: Any) in
             guard let resultDict = result as? [String: Any] else {
                 return
@@ -25,8 +25,8 @@ extension DiscoverViewModel {
     }
 }
 
-extension DiscoverViewModel {
-    func loadCarouselData(_ complection : @escaping () -> ()) {
+extension DiscoverViewModel { 
+    func loadCarouselData(_ complection: @escaping () -> ()) {
         HTTPRequestTool.request(.get, URLString: "http://qf.56.com/home/v4/getBanners.ios", completion: { (result: Any) in
             guard let resultDict = result as? [String: Any] else {
                 return

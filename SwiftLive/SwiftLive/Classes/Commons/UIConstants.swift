@@ -1,12 +1,9 @@
 
 import UIKit
 
-let kScreenW = UIScreen.main.bounds.width
-let kScreenH = UIScreen.main.bounds.height
+let SCREEN_WIDTH = UIScreen.main.bounds.width
+let SCREEN_HEIGHT = UIScreen.main.bounds.height
 
-let kStatusBarH: CGFloat = (kScreenH == 812 ? 44 : 20)
-let kNavBarH: CGFloat = 44
-let kTabBarH: CGFloat = (kScreenH == 812 ? 83 : 49)
-
-let kNavBarMoreH: CGFloat = 24
-let kTabBarMoreH: CGFloat = 34
+let STATUS_BAR_H: CGFloat = (SCREEN_HEIGHT == 812 ? 44 : 20)
+let NAV_BAR_H: CGFloat = 44
+let TAB_BAR_H: CGFloat = (SCREEN_HEIGHT == 812 ? 83 : 49)
