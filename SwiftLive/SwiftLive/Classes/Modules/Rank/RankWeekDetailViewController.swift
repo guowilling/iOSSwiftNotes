@@ -7,13 +7,6 @@ class RankWeekDetailViewController: RankDateDetailViewController {
 
     fileprivate lazy var rankVM: RankViewModel = RankViewModel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.contentInset = UIEdgeInsets.zero
-        tableView.register(UINib(nibName: "RankWeekCell", bundle: nil), forCellReuseIdentifier: kRankWeekCellID)
-    }
-    
     override init(rankType: RankType) {
         super.init(rankType: rankType)
     }
@@ -21,9 +14,14 @@ class RankWeekDetailViewController: RankDateDetailViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension RankWeekDetailViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.contentInset = UIEdgeInsets.zero
+        tableView.register(UINib(nibName: "RankWeekCell", bundle: nil), forCellReuseIdentifier: kRankWeekCellID)
+    }
+    
     override func loadRankData() {
         rankVM.loadRankWeekData(rankType) {
             self.tableView.reloadData()

@@ -27,11 +27,8 @@ class RankDateDetailViewController: UIViewController {
         
         loadRankData()
     }
-}
-
-extension RankDateDetailViewController {
     
-    fileprivate func setupUI() {
+    private func setupUI() {
         tableView.frame = view.bounds
         tableView.backgroundColor = UIColor(R: 245, G: 245, B: 245)
         tableView.dataSource = self
@@ -42,11 +39,8 @@ extension RankDateDetailViewController {
         tableView.register(UINib(nibName: "RankDateCell", bundle: nil), forCellReuseIdentifier: kRankDateCellID)
         view.addSubview(tableView)
     }
-}
-
-extension RankDateDetailViewController {
     
-    @objc func loadRankData() {
+    func loadRankData() {
         rankVM.loadRankDateData(rankType, {
             self.tableView.reloadData()
         })
@@ -54,7 +48,6 @@ extension RankDateDetailViewController {
 }
 
 extension RankDateDetailViewController : UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rankVM.dateModels.count
     }

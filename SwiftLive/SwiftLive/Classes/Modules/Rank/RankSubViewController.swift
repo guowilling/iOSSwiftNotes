@@ -3,6 +3,8 @@ import UIKit
 
 class RankSubViewController: UIViewController {
 
+    fileprivate var typeName: String = ""
+    
     var currentIndex: Int = 0 {
         didSet {
             switch currentIndex {
@@ -20,16 +22,12 @@ class RankSubViewController: UIViewController {
         }
     }
     
-    fileprivate var typeName: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-}
-
-extension RankSubViewController {
+    
     func setupUI(_ titles: [String]) {
-        let frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64 - 44)
+        let frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - STATUS_BAR_H - NAVIGATION_BAR_H - TABBAR_BAR_H)
         let titles = titles
         let style = SRChannelsTitleStyle()
         style.titleNormalColor = UIColor(sr_colorWithR: 0, G: 0, B: 0)

@@ -184,8 +184,8 @@
 				6890B3A81F710AF700B0FA12 /* RankViewController.swift */,
 				6807246E1F7207150041AD4F /* RankSubViewController.swift */,
 				680724701F72073A0041AD4F /* RankDateViewController.swift */,
-				680724741F7207DD0041AD4F /* RankDateDetailViewController.swift */,
 				680724721F7207440041AD4F /* RankWeekViewController.swift */,
+				680724741F7207DD0041AD4F /* RankDateDetailViewController.swift */,
 				680724761F7207EC0041AD4F /* RankWeekDetailViewController.swift */,
 			);
 			name = ViewControllers;
