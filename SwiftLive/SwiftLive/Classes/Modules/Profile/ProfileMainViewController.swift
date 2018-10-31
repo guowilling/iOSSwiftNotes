@@ -29,7 +29,7 @@ extension ProfileMainViewController {
     override func setupUI() {
         super.setupUI()
         
-        profileHeader.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 200)
+        profileHeader.frame = CGRect(x: 0, y: 0, width: ScreenW, height: 200)
         mainTableView.tableHeaderView = profileHeader
     }
     

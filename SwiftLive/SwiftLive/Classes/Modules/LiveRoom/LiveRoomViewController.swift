@@ -85,8 +85,8 @@ extension LiveRoomViewController {
         let liveURL = URL(string: liveRoomVM.liveURLString)
         player = IJKFFMoviePlayerController(contentURL: liveURL, with: nil)
         if anchorModel?.push == 1 {
-            player?.view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_WIDTH * 3 / 4)
-            player?.view.center.y = SCREEN_HEIGHT * 0.5
+            player?.view.frame = CGRect(x: 0, y: 0, width: ScreenW, height: ScreenW * 3 / 4)
+            player?.view.center.y = ScreenH * 0.5
         } else {
             player?.view.frame = view.bounds
         }

@@ -14,7 +14,7 @@ class DiscoverViewController: UIViewController {
         
         setupFooterView()
         
-        tableView.rowHeight = SCREEN_WIDTH * 1.5
+        tableView.rowHeight = ScreenW * 1.5
     }
 }
 
@@ -29,17 +29,17 @@ extension DiscoverViewController {
             let carsouselView = SRCarouselView.sr_carouselView(withImageArrary: picUrls, describe: [], placeholderImage: nil, block: { (index) in
                 print(index)
             })
-            let carouseViewH = SCREEN_WIDTH * 0.5
-            carsouselView?.frame = CGRect(x: 0, y: -carouseViewH, width: SCREEN_WIDTH, height: carouseViewH)
+            let carouseViewH = ScreenW * 0.5
+            carsouselView?.frame = CGRect(x: 0, y: -carouseViewH, width: ScreenW, height: carouseViewH)
             self.tableView.tableHeaderView = carsouselView
         }
     }
     
     fileprivate func setupFooterView() {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 80))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenW, height: 80))
         let btn = UIButton(frame: CGRect.zero)
-        btn.frame.size = CGSize(width: SCREEN_WIDTH * 0.5, height: 40)
-        btn.center = CGPoint(x: SCREEN_WIDTH * 0.5, y: 40)
+        btn.frame.size = CGSize(width: ScreenW * 0.5, height: 40)
+        btn.center = CGPoint(x: ScreenW * 0.5, y: 40)
         btn.setTitle("换一换", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
@@ -55,7 +55,7 @@ extension DiscoverViewController {
     @objc private func switchGuessAnchor() {
         let cell = tableView.visibleCells.first as? DiscoverTableViewCell
         cell?.reloadData()
-        let offset = CGPoint(x: 0, y: SCREEN_WIDTH * 0.5 - 64)
+        let offset = CGPoint(x: 0, y: ScreenW * 0.5 - 64)
         tableView.setContentOffset(offset, animated: true)
     }
 }
@@ -77,7 +77,7 @@ extension DiscoverViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 40))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: ScreenW, height: 40))
         let headerLabel = UILabel(frame: headerView.bounds)
         headerLabel.text = "猜你喜欢"
         headerLabel.textAlignment = .center

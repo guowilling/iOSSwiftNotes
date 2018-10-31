@@ -68,6 +68,6 @@ extension HomeAnchorViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func waterfallLayout(_ layout: HomeWaterfallLayout, heightOfIndexPath indexPath: IndexPath) -> CGFloat {
-        return indexPath.item % 2 == 0 ? SCREEN_WIDTH * 2 / 3 : SCREEN_WIDTH * 0.5
+        return indexPath.item % 2 == 0 ? ScreenW * 2 / 3 : ScreenW * 0.5
     }
 }
