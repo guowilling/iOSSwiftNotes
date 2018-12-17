@@ -14,10 +14,10 @@ class U17TodayFooterCell: UITableViewCell {
     }()
     
     lazy var button: UIButton = {
-        let button = UIButton.init(type: UIButtonType.custom)
+        let button = UIButton.init(type: UIButton.ButtonType.custom)
         button.backgroundColor = U17ThemeColor
-        button.setTitle("阅读漫画", for: UIControlState.normal)
-        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+        button.setTitle("阅读漫画", for: UIControl.State.normal)
+        button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 14
@@ -37,7 +37,7 @@ class U17TodayFooterCell: UITableViewCell {
         return view
     }()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
         setUpUI()

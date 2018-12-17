@@ -5,24 +5,24 @@ class U17TodayCell: UITableViewCell {
     
     lazy var picImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.layer.cornerRadius = 20.0
         imageView.layer.masksToBounds = true
         return imageView
     }()
     
     lazy var button: UIButton = {
-        let button = UIButton.init(type: UIButtonType.custom)
+        let button = UIButton.init(type: UIButton.ButtonType.custom)
         button.backgroundColor = U17ThemeColor
-        button.setTitle("阅读漫画", for: UIControlState.normal)
-        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+        button.setTitle("阅读漫画", for: UIControl.State.normal)
+        button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 15
         return button
     }()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
         setUpUI()

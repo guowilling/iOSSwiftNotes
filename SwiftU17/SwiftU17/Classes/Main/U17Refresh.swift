@@ -26,7 +26,7 @@ class URefreshHeader: MJRefreshGifHeader {
         
         lastUpdatedTimeLabel.isHidden = true
         
-        stateLabel.isHidden = true
+//        stateLabel.isHidden = true
     }
 }
 

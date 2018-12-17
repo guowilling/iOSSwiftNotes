@@ -7,7 +7,7 @@ class U17MineViewController: UIViewController {
     private let U17MineHeaderViewIdentifier = "U17MineHeaderView"
     
     lazy var tableview: UITableView = {
-       let tabView = UITableView.init(frame: self.view.bounds, style: UITableViewStyle.grouped)
+        let tabView = UITableView.init(frame: self.view.bounds, style: UITableView.Style.grouped)
         tabView.frame.size.height -= 49;
         tabView.delegate = self
         tabView.dataSource = self

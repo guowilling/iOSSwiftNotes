@@ -12,11 +12,11 @@ class RecommendHeaderView: UICollectionReusableView {
     lazy var titleL = UILabel()
     
     lazy var moreBtn: UIButton = {
-        let btn = UIButton.init(type: UIButtonType.custom)
-            btn.setImage(UIImage(named:"small_change"), for: UIControlState.normal)
+        let btn = UIButton.init(type: UIButton.ButtonType.custom)
+            btn.setImage(UIImage(named:"small_change"), for: UIControl.State.normal)
             btn.addTarget(self,
                           action: #selector(btnChange(button:)),
-                          for: UIControlEvents.touchUpInside)
+                          for: UIControl.Event.touchUpInside)
         return btn
     }()
     

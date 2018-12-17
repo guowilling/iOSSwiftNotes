@@ -5,7 +5,7 @@ class U17RankCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView.init(frame: CGRect(x: 10, y: 10, width: self.frame.width/2-15, height:self.frame.height-20))
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIView.ContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()

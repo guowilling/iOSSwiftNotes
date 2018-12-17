@@ -33,9 +33,9 @@ class RecommendBannerGrid: UIView {
                                                      height: margin))
             button.layer.masksToBounds = true
             button.layer.cornerRadius = button.frame.width/2
-            button.kf.setImage(with: URL(string:btnImageArray[index]), for: UIControlState.normal)
+            button.kf.setImage(with: URL(string:btnImageArray[index]), for: UIControl.State.normal)
             button.tag = index
-            button.addTarget(self, action: #selector(gridBtnClick(button:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(gridBtnClick(button:)), for: UIControl.Event.touchUpInside)
             self.addSubview(button)
             
             let label = UILabel()

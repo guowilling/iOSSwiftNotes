@@ -16,14 +16,14 @@ class U17TodayViewController: UIViewController {
     }()
 
     lazy var tableView: UITableView = {
-        let tabView = UITableView.init(frame: CGRect(x:0, y:20, width: ScreenWidth, height: ScreenHeigth-20), style: UITableViewStyle.grouped)
+        let tabView = UITableView.init(frame: CGRect(x:0, y:20, width: ScreenWidth, height: ScreenHeigth-20), style: UITableView.Style.grouped)
         tabView.delegate = self
         tabView.dataSource = self
         tabView.backgroundColor = UIColor.init(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1)
         tabView.register(U17TodayCell.self, forCellReuseIdentifier: CellIdentifier)
         tabView.register(U17TodayFooterView.self, forHeaderFooterViewReuseIdentifier: FooterIdentifier)
         tabView.register(U17TodayHeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderIdentifier)
-        tabView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tabView.separatorStyle = UITableViewCell.SeparatorStyle.none
         return tabView
     }()
     
@@ -74,7 +74,7 @@ extension U17TodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:U17TodayCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as! U17TodayCell
         cell.backgroundColor = UIColor.init(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1)
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.model = self.dayDataList[indexPath.section].dayItemDataList?[indexPath.row]
         return cell
     }

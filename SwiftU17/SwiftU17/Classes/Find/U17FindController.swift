@@ -21,7 +21,7 @@ class U17FindController: SwipeMenuViewController {
         self.view.backgroundColor = U17ThemeColor
         
         for vc in vcs {
-            self.addChildViewController(vc)
+            self.addChild(vc)
         }
         
         self.options.tabView.style = .segmented

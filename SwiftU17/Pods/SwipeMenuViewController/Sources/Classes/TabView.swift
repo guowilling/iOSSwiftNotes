@@ -213,7 +213,6 @@ open class TabView: UIScrollView {
         for index in 0..<itemCount {
             let tabItemView = TabItemView(frame: CGRect(x: xPosition, y: 0, width: options.itemView.width, height: containerView.frame.size.height))
             tabItemView.translatesAutoresizingMaskIntoConstraints = false
-            tabItemView.backgroundColor = options.backgroundColor
             tabItemView.clipsToBounds = options.clipsToBounds
             if let title = dataSource.tabView(self, titleForItemAt: index) {
                 tabItemView.titleLabel.text = title
@@ -363,7 +362,7 @@ extension TabView {
             additionView.layer.cornerRadius = options.additionView.circle.cornerRadius ?? additionView.frame.height / 2
             additionView.backgroundColor = options.additionView.backgroundColor
             containerView.addSubview(additionView)
-            containerView.sendSubview(toBack: additionView)
+            containerView.sendSubviewToBack(additionView)
         case .none:
             additionView.backgroundColor = .clear
         }

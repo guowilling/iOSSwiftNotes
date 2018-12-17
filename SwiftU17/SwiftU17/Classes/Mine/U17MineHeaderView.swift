@@ -108,13 +108,13 @@ private class TagView: UIView {
     }()
     
     lazy var signBtn: UIButton = {
-       let button = UIButton.init(type: UIButtonType.custom)
-        button.setTitle("退出", for: UIControlState.normal)
+       let button = UIButton.init(type: UIButton.ButtonType.custom)
+        button.setTitle("退出", for: UIControl.State.normal)
         button.backgroundColor = U17ThemeColor
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 15
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        button.addTarget(self, action: #selector(logoutBtnClick(button:)), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: #selector(logoutBtnClick(button:)), for: UIControl.Event.touchUpInside)
         return button
     }()
     
@@ -154,11 +154,11 @@ private class TagView: UIView {
         
         for index in 0..<titleArray.count {
             let button = UIButton.init(frame: CGRect(x: margin*CGFloat(index), y: 60, width: margin, height: 40))
-            button.setTitle("0", for: UIControlState.normal)
-            button.setTitleColor(UIColor.black, for: UIControlState.normal)
+            button.setTitle("0", for: UIControl.State.normal)
+            button.setTitleColor(UIColor.black, for: UIControl.State.normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
             button.tag = index
-            button.addTarget(self, action: #selector(tagBtnClick(button:)), for: UIControlEvents.touchUpInside)
+            button.addTarget(self, action: #selector(tagBtnClick(button:)), for: UIControl.Event.touchUpInside)
             self.addSubview(button)
             
             let label = UILabel()

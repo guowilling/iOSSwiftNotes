@@ -17,8 +17,8 @@ class U17VIPController: UIViewController, UICollectionViewDataSource,  UICollect
         collection.dataSource = self
         
         collection.register(UINib.init(nibName: "U17VIPAndSubscribeCell", bundle: nil), forCellWithReuseIdentifier: VIPAndSubCellIdentifier)
-        collection.register(RecommendHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: RecommendHeaderViewIdentifier)
-        collection.register(U17DivideFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier)
+        collection.register(RecommendHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecommendHeaderViewIdentifier)
+        collection.register(U17DivideFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier)
 
         collection.u17RefreshHeader = URefreshHeader{ [weak self] in self?.loadData() }
         collection.u17RefreshFooter = URefreshTipKissFooter(with: "VIP用户专享\nVIP用户可以免费阅读全部漫画哦~")
@@ -61,16 +61,16 @@ class U17VIPController: UIViewController, UICollectionViewDataSource,  UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionHeader {
-            let headerView: RecommendHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: RecommendHeaderViewIdentifier, for: indexPath) as! RecommendHeaderView
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headerView: RecommendHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecommendHeaderViewIdentifier, for: indexPath) as! RecommendHeaderView
             let comicList = vipList[indexPath.section]
             headerView.imageView.kf.setImage(with: URL(string:comicList.titleIconUrl!))
             headerView.titleL.text = comicList.itemTitle
             headerView.moreBtn.isHidden = !comicList.canMore
             headerView.headerMoreBtnClick = { [weak self]() in }
             return headerView
-        } else if kind == UICollectionElementKindSectionFooter {
-            let footerView: U17DivideFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier, for: indexPath) as! U17DivideFooterView
+        } else if kind == UICollectionView.elementKindSectionFooter {
+            let footerView: U17DivideFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier, for: indexPath) as! U17DivideFooterView
             return footerView
         }
         return UICollectionReusableView()
@@ -92,7 +92,7 @@ extension U17VIPController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 6, 0, 6);
+        return UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6);
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

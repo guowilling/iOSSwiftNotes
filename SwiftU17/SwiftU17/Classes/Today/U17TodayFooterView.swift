@@ -32,10 +32,10 @@ class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDelegate, UIT
     }()
     
     lazy var button: UIButton = {
-        let button = UIButton.init(type: UIButtonType.custom)
+        let button = UIButton.init(type: UIButton.ButtonType.custom)
         button.backgroundColor = UIColor.init(red: 239/255.0, green: 239/255.0, blue: 239/255.0, alpha: 1)
-        button.setTitle("☆ 收藏", for: UIControlState.normal)
-        button.setTitleColor(U17ThemeColor, for: UIControlState.normal)
+        button.setTitle("☆ 收藏", for: UIControl.State.normal)
+        button.setTitleColor(U17ThemeColor, for: UIControl.State.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 5
@@ -46,7 +46,7 @@ class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDelegate, UIT
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.register(U17TodayFooterCell.self, forCellReuseIdentifier: CellIdentifier)
         return tableView
     }()
@@ -111,7 +111,7 @@ class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:U17TodayFooterCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as! U17TodayFooterCell
         cell.dayComicItem = self.dayComicItemList?[indexPath.row]
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
     

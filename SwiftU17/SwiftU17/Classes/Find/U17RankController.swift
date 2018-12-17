@@ -16,7 +16,7 @@ class U17RankController: UIViewController, UICollectionViewDataSource,  UICollec
             collection.dataSource = self
             
             collection.register(U17RankCell.self, forCellWithReuseIdentifier: U17RankCellIdentifier)
-            collection.register(U17DivideFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier)
+            collection.register(U17DivideFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier)
 
             collection.u17RefreshHeader = URefreshHeader{ [weak self] in self?.loadData() }
             
@@ -60,8 +60,8 @@ class U17RankController: UIViewController, UICollectionViewDataSource,  UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionFooter {
-            let footerView: U17DivideFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier, for: indexPath) as! U17DivideFooterView
+        if kind == UICollectionView.elementKindSectionFooter {
+            let footerView: U17DivideFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier, for: indexPath) as! U17DivideFooterView
             return footerView
         }
         return UICollectionReusableView()
@@ -75,7 +75,7 @@ extension U17RankController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 6, 0, 6);
+        return UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6);
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
