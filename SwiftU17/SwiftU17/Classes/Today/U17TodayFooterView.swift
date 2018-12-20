@@ -1,18 +1,17 @@
 
 import UIKit
 
-protocol U17TodayFooterViewDelegate: NSObjectProtocol{
-    
+protocol U17TodayFooterViewDelegate: NSObjectProtocol {
     func readCartoon(dayComicItemModel: dayComicItemModel?)
 }
 
-class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDelegate, UITableViewDataSource {
+class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDataSource, UITableViewDelegate {
     
     weak var delegate: U17TodayFooterViewDelegate?
     
     private var dayComicItemList: [dayComicItemModel]?
     
-    private let CellIdentifier = "U17TodayFooterCell"
+    private let footerViewCellIdentifier = "U17TodayFooterCell"
     
     lazy var bgView : UIView = {
         let view = UIView()
@@ -47,7 +46,7 @@ class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDelegate, UIT
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.register(U17TodayFooterCell.self, forCellReuseIdentifier: CellIdentifier)
+        tableView.register(U17TodayFooterCell.self, forCellReuseIdentifier: footerViewCellIdentifier)
         return tableView
     }()
     
@@ -109,7 +108,7 @@ class U17TodayFooterView: UITableViewHeaderFooterView , UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:U17TodayFooterCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as! U17TodayFooterCell
+        let cell:U17TodayFooterCell = tableView.dequeueReusableCell(withIdentifier: footerViewCellIdentifier, for: indexPath) as! U17TodayFooterCell
         cell.dayComicItem = self.dayComicItemList?[indexPath.row]
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell

@@ -10,16 +10,16 @@ class U17VIPController: UIViewController, UICollectionViewDataSource,  UICollect
     private var vipList = [ComicListModel]()
     
     lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout.init()
-        let collection = UICollectionView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeigth-64-49), collectionViewLayout: layout)
+        let layout = UICollectionViewFlowLayout()
+        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeigth - 64 - 49), collectionViewLayout: layout)
         collection.backgroundColor = UIColor.white
         collection.delegate = self
         collection.dataSource = self
         
-        collection.register(UINib.init(nibName: "U17VIPAndSubscribeCell", bundle: nil), forCellWithReuseIdentifier: VIPAndSubCellIdentifier)
+        collection.register(UINib(nibName: "U17VIPAndSubscribeCell", bundle: nil), forCellWithReuseIdentifier: VIPAndSubCellIdentifier)
         collection.register(RecommendHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecommendHeaderViewIdentifier)
         collection.register(U17DivideFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: U17FooterViewIdentifier)
-
+        
         collection.u17RefreshHeader = URefreshHeader{ [weak self] in self?.loadData() }
         collection.u17RefreshFooter = URefreshTipKissFooter(with: "VIP用户专享\nVIP用户可以免费阅读全部漫画哦~")
         
@@ -81,36 +81,36 @@ class U17VIPController: UIViewController, UICollectionViewDataSource,  UICollect
         guard let item = comicList.comics?[indexPath.row] else {
             return
         }
-        //...
+        print(item)
     }
 }
 
 extension U17VIPController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: (ScreenWidth - 6 * 4) / 3, height: 220)
+        return CGSize(width: (ScreenWidth - 5 * 4) / 3, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6);
+        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 6;
+        return 5;
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 6;
+        return 5;
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize.init(width: ScreenWidth, height: 40)
+        return CGSize(width: ScreenWidth, height: 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         if section == vipList.count - 1 {
             return CGSize.zero
         }
-        return CGSize.init(width: ScreenWidth, height: 10)
+        return CGSize(width: ScreenWidth, height: 10)
     }
 }

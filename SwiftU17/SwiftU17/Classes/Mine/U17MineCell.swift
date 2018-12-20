@@ -3,7 +3,6 @@ import UIKit
 
 class U17MineCell: UITableViewCell {
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -14,5 +13,4 @@ class U17MineCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

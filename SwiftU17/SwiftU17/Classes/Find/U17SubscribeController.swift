@@ -1,7 +1,7 @@
 
 import UIKit
 
-class U17SubscribeController: UIViewController, UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class U17SubscribeController: UIViewController, UICollectionViewDataSource,  UICollectionViewDelegate {
     
     private let VIPAndSubCellIdentifier = "VIPAndSubCellIdentifier"
     private let RecommendHeaderViewIdentifier = "RecommendHeaderViewIdentifier"
@@ -10,8 +10,8 @@ class U17SubscribeController: UIViewController, UICollectionViewDataSource,  UIC
     private var subscribeList = [ComicListModel]()
     
     lazy var collectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout.init()
-        let collection = UICollectionView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeigth-64-49), collectionViewLayout: layout)
+        let layout = UICollectionViewFlowLayout()
+        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeigth - 64 - 49), collectionViewLayout: layout)
         collection.backgroundColor = UIColor.white
         collection.delegate = self
         collection.dataSource = self
@@ -83,22 +83,22 @@ class U17SubscribeController: UIViewController, UICollectionViewDataSource,  UIC
     }
 }
 
-extension U17SubscribeController {
+extension U17SubscribeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: (ScreenWidth - 6 * 4) / 3, height: 220)
+        return CGSize(width: (ScreenWidth - 5 * 4) / 3, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6);
+        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 6;
+        return 5;
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 6;
+        return 5;
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -109,6 +109,6 @@ extension U17SubscribeController {
         if section == subscribeList.count - 1 {
             return CGSize.zero
         }
-        return CGSize.init(width: ScreenWidth, height: 10)
+        return CGSize(width: ScreenWidth, height: 10)
     }
 }

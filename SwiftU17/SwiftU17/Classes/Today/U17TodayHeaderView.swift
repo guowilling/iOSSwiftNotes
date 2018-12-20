@@ -21,22 +21,26 @@ class U17TodayHeaderView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        
+
         self.addSubview(self.timeLabel)
         self.timeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(20)
             make.top.equalTo(30)
-            make.height.equalTo(30)
+            make.left.equalTo(20)
             make.right.equalToSuperview()
+            make.height.equalTo(30)
         }
         
         self.addSubview(self.weekLabel)
         self.weekLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.timeLabel.snp.left)
             make.top.equalTo(self.timeLabel.snp.bottom)
-            make.height.equalTo(45)
+            make.left.equalTo(self.timeLabel.snp.left)
             make.right.equalTo(self.timeLabel.snp.right)
+            make.height.equalTo(45)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     var dayDataModel: DayItemDataListModel? {
@@ -45,24 +49,19 @@ class U17TodayHeaderView: UITableViewHeaderFooterView {
                 return
             }
             self.weekLabel.text = model.weekDay
+            
             let time = (model.timeStamp! as NSString).intValue
             let timeDate = NSDate.init(timeIntervalSince1970: TimeInterval(time))
-            let timeStr = dateFromString(date: timeDate as Date)
-            self.timeLabel.text = timeStr
+            self.timeLabel.text = dateFromString(date: timeDate as Date)
         }
     }
     
     func dateFromString(date: Date, dateFormat: String = "yyyy-MM-dd") -> String {
-        let timeZone = TimeZone.init(identifier: "UTC")
         let formatter = DateFormatter()
-        formatter.timeZone = timeZone
+        formatter.timeZone = TimeZone(identifier: "UTC")
         formatter.locale = Locale.init(identifier: "zh_CN")
         formatter.dateFormat = dateFormat
         let date = formatter.string(from: date)
         return date.components(separatedBy: " ").first!
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }

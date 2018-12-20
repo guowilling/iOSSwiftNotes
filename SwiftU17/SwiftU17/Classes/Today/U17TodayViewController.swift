@@ -3,20 +3,20 @@ import UIKit
 
 class U17TodayViewController: UIViewController {
     
-    private let CellIdentifier = "U17TodayCell"
-    private let FooterIdentifier = "U17TodayFooterView"
     private let HeaderIdentifier = "U17TodayHeaderView"
+    private let FooterIdentifier = "U17TodayFooterView"
+    private let CellIdentifier = "U17TodayCell"
     
     private var dayDataList = [DayItemDataListModel]()
 
     lazy var statusView: UIView = {
-        let view = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 20))
-        view.backgroundColor = UIColor.init(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1)
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: 20))
+        view.backgroundColor = UIColor(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1)
         return view
     }()
 
     lazy var tableView: UITableView = {
-        let tabView = UITableView.init(frame: CGRect(x:0, y:20, width: ScreenWidth, height: ScreenHeigth-20), style: UITableView.Style.grouped)
+        let tabView = UITableView(frame: CGRect(x:0, y:20, width: ScreenWidth, height: ScreenHeigth-20), style: UITableView.Style.grouped)
         tabView.delegate = self
         tabView.dataSource = self
         tabView.backgroundColor = UIColor.init(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1)
@@ -41,7 +41,7 @@ class U17TodayViewController: UIViewController {
         loadData()
     }
     
-    func loadData(){
+    func loadData() {
         APILoadingProvider.request(U17API.todayList, model: DayDataModel.self) { [weak self] (returnData) in
             self?.dayDataList = returnData?.dayDataList ?? []
             self?.tableView.reloadData()

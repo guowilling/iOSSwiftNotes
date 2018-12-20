@@ -25,10 +25,20 @@ class U17TodayCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
-        setUpUI()
+        setupUI()
     }
     
-    func setUpUI(){
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func setupUI(){
         self.addSubview(self.picImageView)
         self.picImageView.snp.makeConstraints { (make) in
             make.left.top.equalToSuperview().offset(15)
@@ -50,20 +60,5 @@ class U17TodayCell: UITableViewCell {
             }
             self.picImageView.kf.setImage(with: URL(string:model.cover!))
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
 }

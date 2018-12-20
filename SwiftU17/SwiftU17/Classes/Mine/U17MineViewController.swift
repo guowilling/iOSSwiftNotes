@@ -27,12 +27,10 @@ class U17MineViewController: UIViewController {
                 ["icon": "mine_accout", "title": "消费记录"],
                 ["icon": "mine_seal", "title": "我的封印图"]
             ],
-            
             [
                 ["icon": "mine_message", "title": "我的消息/优惠券"],
                 ["icon": "mine_freed", "title": "在线阅读免流量"]
             ],
-            
             [
                 ["icon": "mine_feedBack", "title": "帮助中心"],
                 ["icon": "mine_mail", "title": "我要反馈"],
@@ -102,9 +100,5 @@ extension U17MineViewController : UITableViewDelegate, UITableViewDataSource {
         } else {
             return 0
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

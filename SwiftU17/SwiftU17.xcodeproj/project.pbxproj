@@ -225,10 +225,10 @@
 			isa = PBXGroup;
 			children = (
 				6EEC16072131F52700AF209E /* U17FindController.swift */,
-				6EEC15F52131F52700AF209E /* U17SubscribeController.swift */,
 				6EEC16032131F52700AF209E /* U17VIPController.swift */,
 				6EEC16082131F52800AF209E /* U17VIPAndSubscribeCell.swift */,
 				6EEC16092131F52800AF209E /* U17VIPAndSubscribeCell.xib */,
+				6EEC15F52131F52700AF209E /* U17SubscribeController.swift */,
 				6EEC16052131F52700AF209E /* U17RankController.swift */,
 				6EEC16062131F52700AF209E /* U17RankCell.swift */,
 				6EEC15F62131F52700AF209E /* Recommend */,

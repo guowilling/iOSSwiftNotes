@@ -26,7 +26,7 @@ class URefreshHeader: MJRefreshGifHeader {
         
         lastUpdatedTimeLabel.isHidden = true
         
-//        stateLabel.isHidden = true
+        stateLabel.isHidden = true
     }
 }
 
@@ -75,7 +75,6 @@ class URefreshTipKissFooter: MJRefreshBackFooter {
         mj_h = 240
         
         addSubview(tipLabel)
-        
         addSubview(imageView)
     }
     

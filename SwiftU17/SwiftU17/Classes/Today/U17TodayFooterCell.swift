@@ -14,7 +14,7 @@ class U17TodayFooterCell: UITableViewCell {
     }()
     
     lazy var button: UIButton = {
-        let button = UIButton.init(type: UIButton.ButtonType.custom)
+        let button = UIButton(type: UIButton.ButtonType.custom)
         button.backgroundColor = U17ThemeColor
         button.setTitle("阅读漫画", for: UIControl.State.normal)
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
@@ -40,10 +40,20 @@ class U17TodayFooterCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
-        setUpUI()
+        setupUI()
     }
     
-    func setUpUI(){
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func setupUI() {
         self.addSubview(self.picImageView)
         self.picImageView.snp.makeConstraints { (make) in
             make.left.equalTo(20)
@@ -79,20 +89,18 @@ class U17TodayFooterCell: UITableViewCell {
     
     var dayComicItem: dayComicItemModel? {
         didSet {
-            guard let model = dayComicItem else {
-                return
-            }
+            guard let model = dayComicItem else { return }
             self.picImageView.kf.setImage(with: URL(string:(dayComicItem?.cover)!))
             self.titleLabel.text = model.name
             
-            let margin:CGFloat = 35
+            let margin: CGFloat = 35
             items.removeAll()
             items = model.tags as! [String]
-            for view in self.tagView.subviews{
+            for view in self.tagView.subviews {
                 view.removeFromSuperview()
             }
-            for index in 0..<items.count{
-                let label = UILabel.init(frame: CGRect(x:margin*CGFloat(index)+1*CGFloat(index),y:2.5,width:margin,height:25))
+            for index in 0..<items.count {
+                let label = UILabel.init(frame: CGRect(x: margin*CGFloat(index)+1*CGFloat(index), y: 2.5, width: margin, height: 25))
                 label.text = nil
                 label.textAlignment = .center
                 label.textColor = UIColor.white
@@ -106,20 +114,5 @@ class U17TodayFooterCell: UITableViewCell {
                 self.tagView.addSubview(label)
             }
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

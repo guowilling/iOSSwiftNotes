@@ -34,18 +34,22 @@ class U17MineHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-    lazy var subloginLabel: UILabel = {
+    lazy var loginSublabel: UILabel = {
         let label = UILabel()
         label.text = "登录后可以使用更多精彩功能呦"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
-
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
         setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     func setupUI() {
@@ -78,21 +82,17 @@ class U17MineHeaderView: UITableViewHeaderFooterView {
             make.top.equalTo(self.nickImageView.snp.top).offset(15)
         }
 
-        self.addSubview(self.subloginLabel)
-        self.subloginLabel.snp.makeConstraints { (make) in
+        self.addSubview(self.loginSublabel)
+        self.loginSublabel.snp.makeConstraints { (make) in
             make.left.right.height.equalTo(self.loginLabel)
             make.top.equalTo(self.loginLabel.snp.bottom).offset(5)
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }
 
 private class TagView: UIView {
     
-    private let titleArray = ["妖气币", "阅读劵", "月票"]
+    private let btnTitles = ["妖气币", "阅读劵", "月票"]
     
     lazy var lineView: UIView = {
         let view = UIView()
@@ -114,15 +114,21 @@ private class TagView: UIView {
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 15
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        button.addTarget(self, action: #selector(logoutBtnClick(button:)), for: UIControl.Event.touchUpInside)
+        button.addTarget(self, action: #selector(signBtnAction(sender:)), for: UIControl.Event.touchUpInside)
         return button
     }()
-    
-    @objc func logoutBtnClick(button:UIButton) { }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func setupUI() {
         self.addSubview(self.lineView)
         self.lineView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
@@ -146,24 +152,19 @@ private class TagView: UIView {
             make.top.equalTo(15)
         }
         
-        createBtn()
-    }
-    
-    func createBtn(){
-        let margin:CGFloat = (ScreenWidth - 30) / 3
-        
-        for index in 0..<titleArray.count {
+        let margin: CGFloat = (ScreenWidth - 30) / 3
+        for index in 0..<btnTitles.count {
             let button = UIButton.init(frame: CGRect(x: margin*CGFloat(index), y: 60, width: margin, height: 40))
             button.setTitle("0", for: UIControl.State.normal)
             button.setTitleColor(UIColor.black, for: UIControl.State.normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
             button.tag = index
-            button.addTarget(self, action: #selector(tagBtnClick(button:)), for: UIControl.Event.touchUpInside)
+            button.addTarget(self, action: #selector(btnTitleAction(sender:)), for: UIControl.Event.touchUpInside)
             self.addSubview(button)
             
             let label = UILabel()
             label.textAlignment = .center
-            label.text = titleArray[index]
+            label.text = btnTitles[index]
             label.font = UIFont.systemFont(ofSize: 14)
             label.textColor = UIColor.gray
             self.addSubview(label)
@@ -175,16 +176,18 @@ private class TagView: UIView {
         }
         
         let lineWidth: CGFloat = (ScreenWidth - 30) / 3
-        for index in 0..<titleArray.count - 1 {
-            let lineView = UIView.init(frame: CGRect(x: lineWidth+CGFloat(index)*lineWidth, y: 70, width: 0.5, height: 40))
-            lineView.backgroundColor = UIColor.init(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1)
+        for index in 0..<btnTitles.count - 1 {
+            let lineView = UIView(frame: CGRect(x: lineWidth+CGFloat(index)*lineWidth, y: 70, width: 0.5, height: 40))
+            lineView.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1)
             self.addSubview(lineView)
         }
     }
     
-    @objc func tagBtnClick(button: UIButton) { }
+    @objc func signBtnAction(sender: UIButton) {
+        print(signBtnAction)
+    }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    @objc func btnTitleAction(sender: UIButton) {
+        print(btnTitleAction)
     }
 }
