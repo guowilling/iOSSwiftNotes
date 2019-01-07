@@ -10,3 +10,5 @@ let StatusBarH: CGFloat = (ScreenH == 812 ? 44 : 20)
 let NavigationBarH: CGFloat = 44
 
 let TabBarH: CGFloat = (ScreenH == 812 ? 83 : 49)
+
+let HomeIndicatorH: CGFloat = 34

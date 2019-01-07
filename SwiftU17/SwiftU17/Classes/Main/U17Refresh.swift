@@ -67,6 +67,14 @@ class URefreshTipKissFooter: MJRefreshBackFooter {
         return imageView
     }()
     
+    convenience init(with tip: String) {
+        self.init()
+        
+        refreshingBlock = { self.endRefreshing() }
+        
+        tipLabel.text = tip
+    }
+    
     override func prepare() {
         super.prepare()
         
@@ -81,13 +89,5 @@ class URefreshTipKissFooter: MJRefreshBackFooter {
     override func placeSubviews() {
         tipLabel.frame = CGRect(x: 0, y: 40, width: bounds.width, height: 60)
         imageView.frame = CGRect(x: (bounds.width - 80 ) / 2, y: 110, width: 80, height: 80)
-    }
-    
-    convenience init(with tip: String) {
-        self.init()
-        
-        refreshingBlock = { self.endRefreshing() }
-        
-        tipLabel.text = tip
     }
 }
