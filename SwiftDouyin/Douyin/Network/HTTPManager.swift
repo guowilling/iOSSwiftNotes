@@ -145,8 +145,8 @@ extension HTTPManager {
 
 extension HTTPManager {
     
-    static func processData(data:[String:Any], success:@escaping HTTPSuccessClosure, failure:@escaping HTTPFailureClosure) {
-        let code:Int = data["code"] as! Int
+    static func processData(data: [String: Any], success: @escaping HTTPSuccessClosure, failure: @escaping HTTPFailureClosure) {
+        let code: Int = data["code"] as! Int
         if (code == 0) {
             success(data)
         } else {

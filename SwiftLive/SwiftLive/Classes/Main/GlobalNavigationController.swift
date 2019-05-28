@@ -6,13 +6,13 @@ class GlobalNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        var count: UInt32 = 0
-//        let ivars = class_copyIvarList(UIGestureRecognizer.self, &count)!
-//        for i in 0..<count {
-//            let ivar = ivars[Int(i)]
-//            let name = ivar_getName(ivar)
-//            print(String(cString: name!))
-//        }
+        var count: UInt32 = 0
+        let ivars = class_copyIvarList(UIGestureRecognizer.self, &count)!
+        for i in 0..<count {
+            let ivar = ivars[Int(i)]
+            let name = ivar_getName(ivar)
+            print(String(cString: name!))
+        }
         
         // 全屏 pop 返回手势
         guard let gesture = interactivePopGestureRecognizer else {
