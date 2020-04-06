@@ -7,7 +7,7 @@ extension UIBarButtonItem {
         let btn: UIButton = UIButton.sr_textButton(title, fontSize: fontSize, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
         if isBack {
             let imageName = "navigationbar_back_withtext"
-            btn.setImage(UIImage(named: imageName), for: UIControlState(rawValue: 0))
+            btn.setImage(UIImage(named: imageName), for: UIControl.State(rawValue: 0))
             btn.setImage(UIImage(named: imageName + "_highlighted"), for: .highlighted)
             btn.sizeToFit()
         }

@@ -69,7 +69,7 @@ extension EmoticonManager {
         let matches = regx.matches(in: string, options: [], range: NSRange(location: 0, length: attrString.length))
         
         for matche in matches.reversed() { // 匹配结果需要倒序!
-            let range = matche.rangeAt(0)
+            let range = matche.range(at: 0)
             let subStr = (attrString.string as NSString).substring(with: range)
             if let em = EmoticonManager.shared.findEmoticon(string: subStr) {
                 attrString.replaceCharacters(in: range, with: em.imageText(font: font))
@@ -77,7 +77,7 @@ extension EmoticonManager {
         }
         
         // 统一设置一遍字符串的属性, 除了需要设置字体, 还需要设置颜色!
-        attrString.addAttributes([NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.darkGray],
+        attrString.addAttributes([NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: UIColor.darkGray],
                                  range: NSRange(location: 0, length: attrString.length))
         return attrString
     }

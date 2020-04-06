@@ -8,9 +8,8 @@ class WBComposeTextView: UITextView {
     override func awakeFromNib() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textChanged),
-                                               name: NSNotification.Name.UITextViewTextDidChange,
+                                               name: UITextView.textDidChangeNotification,
                                                object: self)
-        
         setupUI()
     }
     
@@ -75,13 +74,13 @@ extension WBComposeTextView {
         var result = String()
         attrString.enumerateAttributes(in: NSRange(location: 0, length: attrString.length), options: [], using: { (dict, range, _) in
             // 如果字典中包含 NSAttachment 'Key' 说明是图片否则是文本
-            if let attachment = dict["NSAttachment"] as? EmoticonAttachment {
-                //print("图片表情: \(attachment)")
-                result += attachment.chs ?? "" // 得到 attachment 中的 chs
-            } else {
-                let subString = (attrString.string as NSString).substring(with: range)
-                result += subString
-            }
+//            if let attachment = dict["NSAttachment"] as? EmoticonAttachment {
+//                //print("图片表情: \(attachment)")
+//                result += attachment.chs ?? "" // 得到 attachment 中的 chs
+//            } else {
+//                let subString = (attrString.string as NSString).substring(with: range)
+//                result += subString
+//            }
         })
         return result
     }

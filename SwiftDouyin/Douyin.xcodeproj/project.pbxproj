@@ -97,13 +97,14 @@
 		3BE93158211C38EB000F5B2A /* PhotoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE93157211C38EB000F5B2A /* PhotoSelector.swift */; };
 		3BE9315C211C5EB1000F5B2A /* EmotionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9315B211C5EB1000F5B2A /* EmotionHelper.swift */; };
 		3BE9315E211C77FA000F5B2A /* NSTextAttachment+Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9315D211C77FA000F5B2A /* NSTextAttachment+Emotion.swift */; };
-		63D681B2BE4B7A67F551D8FB /* libPods-Douyin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8786E3BE34F8002C11B460B8 /* libPods-Douyin.a */; };
+		4A287B8F4B79A4BFD9C01F6F /* Pods_Douyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD76C361DE5A26E2DA3151E /* Pods_Douyin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		192BA77221C925A300729C27 /* Douyin+bridging+Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Douyin+bridging+Header.h"; sourceTree = "<group>"; };
 		192CFFED21C266020031677E /* FocusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusView.swift; sourceTree = "<group>"; };
 		193ECD4821C10BA40089BC30 /* UserHomeHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHomeHeader.swift; sourceTree = "<group>"; };
+		1BD76C361DE5A26E2DA3151E /* Pods_Douyin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Douyin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B08FC0E2115746B0046E74B /* UserHomeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeFooter.swift; sourceTree = "<group>"; };
 		3B08FC102115747E0046E74B /* AwemeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwemeCollectionCell.swift; sourceTree = "<group>"; };
 		3B08FC122115748C0046E74B /* HoverViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -195,7 +196,6 @@
 		3BE9315B211C5EB1000F5B2A /* EmotionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionHelper.swift; sourceTree = "<group>"; };
 		3BE9315D211C77FA000F5B2A /* NSTextAttachment+Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextAttachment+Emotion.swift"; sourceTree = "<group>"; };
 		554DBB86FB9F4C18F9129B36 /* Pods-Douyin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douyin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Douyin/Pods-Douyin.debug.xcconfig"; sourceTree = "<group>"; };
-		8786E3BE34F8002C11B460B8 /* libPods-Douyin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Douyin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6162227496FD0937698B260 /* libPods-DouyinUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DouyinUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7222346C9AE7F5DA96B31B3 /* Pods-Douyin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douyin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Douyin/Pods-Douyin.release.xcconfig"; sourceTree = "<group>"; };
 		BC9BEAACAF68963641178CEE /* libPods-DouyinTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DouyinTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D681B2BE4B7A67F551D8FB /* libPods-Douyin.a in Frameworks */,
+				4A287B8F4B79A4BFD9C01F6F /* Pods_Douyin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,9 +462,9 @@
 		9C8DBD9B5708A3ED9B1E576E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8786E3BE34F8002C11B460B8 /* libPods-Douyin.a */,
 				BC9BEAACAF68963641178CEE /* libPods-DouyinTests.a */,
 				A6162227496FD0937698B260 /* libPods-DouyinUITests.a */,
+				1BD76C361DE5A26E2DA3151E /* Pods_Douyin.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -480,6 +480,7 @@
 				3BE4310C2111F314009CE381 /* Sources */,
 				3BE4310D2111F314009CE381 /* Frameworks */,
 				3BE4310E2111F314009CE381 /* Resources */,
+				CE9015ABE1C45D4574526628 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -559,6 +560,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE9015ABE1C45D4574526628 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Douyin/Pods-Douyin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Douyin/Pods-Douyin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Douyin/Pods-Douyin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -790,14 +808,14 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TKMGP28YAK;
 				INFOPLIST_FILE = Douyin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imitate.douyin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matrixport.douyin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Universal_dev_pp;
+				PROVISIONING_PROFILE_SPECIFIER = "PP for Common";
 				SWIFT_OBJC_BRIDGING_HEADER = "Douyin/Douyin+bridging+Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -812,14 +830,14 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TKMGP28YAK;
 				INFOPLIST_FILE = Douyin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.imitate.douyin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matrixport.douyin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Universal_dev_pp;
+				PROVISIONING_PROFILE_SPECIFIER = "PP for Common";
 				SWIFT_OBJC_BRIDGING_HEADER = "Douyin/Douyin+bridging+Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

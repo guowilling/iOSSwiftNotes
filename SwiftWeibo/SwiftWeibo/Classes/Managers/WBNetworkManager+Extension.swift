@@ -52,7 +52,7 @@ extension WBNetworkManager {
         var data: Data?
         if image != nil {
             name = "pic"
-            data = UIImagePNGRepresentation(image!)
+            data = image!.pngData()
         }
         tokenRequest(method: .POST, URLString: URLString, parameters: params as [String: AnyObject]?, name: name, data: data) { (json, isSuccess) in
             completion(json as? [String: AnyObject], isSuccess)

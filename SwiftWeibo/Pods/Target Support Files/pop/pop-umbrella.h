@@ -1,9 +1,18 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 
 #import "POP.h"
 #import "POPAnimatableProperty.h"
+#import "POPAnimatablePropertyTypes.h"
 #import "POPAnimation.h"
 #import "POPAnimationEvent.h"
 #import "POPAnimationExtras.h"
@@ -17,6 +26,7 @@
 #import "POPLayerExtras.h"
 #import "POPPropertyAnimation.h"
 #import "POPSpringAnimation.h"
+#import "POPVector.h"
 
 FOUNDATION_EXPORT double popVersionNumber;
 FOUNDATION_EXPORT const unsigned char popVersionString[];

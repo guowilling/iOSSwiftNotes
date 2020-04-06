@@ -1,4 +1,4 @@
-module Pods_Douyin {
+framework module Pods_Douyin {
   umbrella header "Pods-Douyin-umbrella.h"
 
   export *

@@ -1,12 +1,16 @@
-
-platform :ios, '8.0'
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
 target 'SwiftWeibo' do
-    use_frameworks!
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SwiftWeibo
     pod 'AFNetworking'
-    pod 'SDWebImage', '~>3.8'
+    pod 'SDWebImage'
     pod 'YYModel'
     pod 'FMDB'
     pod 'SVProgressHUD'
     pod 'pop'
+
 end

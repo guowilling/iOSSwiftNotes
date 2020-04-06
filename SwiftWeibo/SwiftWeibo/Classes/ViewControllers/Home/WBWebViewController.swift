@@ -18,8 +18,8 @@ class WBWebViewController: WBBaseViewController {
 
 extension WBWebViewController {
     
-    override func setupTableView() {
-        webView.backgroundColor = UIColor.white
-        self.view.addSubview(webView)
-    }
+//    func setupTableView() {
+//        webView.backgroundColor = UIColor.white
+//        self.view.addSubview(webView)
+//    }
 }

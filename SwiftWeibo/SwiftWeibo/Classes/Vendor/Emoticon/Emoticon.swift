@@ -60,7 +60,7 @@ class Emoticon: NSObject {
         let height = font.lineHeight
         attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
         let attrStringM = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
-        attrStringM.addAttributes([NSFontAttributeName: font], range: NSRange(location: 0, length: 1))
+        attrStringM.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: 1))
         return attrStringM
     }
     

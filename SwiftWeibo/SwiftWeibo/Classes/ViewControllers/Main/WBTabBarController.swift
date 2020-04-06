@@ -76,7 +76,7 @@ extension WBTabBarController {
             return
         }
         var arrayM = [UIViewController]()
-        for dict in array! {
+        for dict in array {
             arrayM.append(controller(dict: dict))
         }
         viewControllers = arrayM
@@ -95,15 +95,15 @@ extension WBTabBarController {
         vc.visitorInfoDictionary = visitorDict
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
-        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.orange], for: .highlighted)
-        vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 12)], for: UIControlState(rawValue: 0))
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .highlighted)
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: UIControl.State(rawValue: 0))
         let navC = WBNavigationController(rootViewController: vc) // 实例化导航控制器的时候, 会调用 push 方法将 rootVC 压入栈顶
         return navC
     }
     
     fileprivate func setupComposeButton() {
         tabBar.addSubview(composeButton)
-        let count = CGFloat(childViewControllers.count)
+        let count = CGFloat(children.count)
         let w = tabBar.bounds.width / count
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0) // CGRectInset 正数向内缩进, 负数向外扩展
         //print("composeButton 宽度: \(composeButton.bounds.width)")
@@ -157,10 +157,10 @@ extension WBTabBarController {
 extension WBTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        let index = (childViewControllers as NSArray).index(of: viewController)
+        let index = (children as NSArray).index(of: viewController)
         if selectedIndex == 0 && index == selectedIndex {
-            let navC = childViewControllers[0] as! UINavigationController
-            let vc = navC.childViewControllers[0] as! WBHomeViewController
+            let navC = children[0] as! UINavigationController
+            let vc = navC.children[0] as! WBHomeViewController
             vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true) // 滚动到顶部
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: { // 刷新数据, 增加延迟是为了保证表格先滚动到顶部再刷新
                 vc.loadData()

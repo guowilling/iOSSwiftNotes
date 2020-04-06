@@ -26,7 +26,7 @@ class WBComposeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardChanged),
-                                               name: NSNotification.Name.UIKeyboardWillChangeFrame,
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
     }
     
@@ -52,8 +52,8 @@ class WBComposeViewController: UIViewController {
 extension WBComposeViewController {
     
     @objc fileprivate func keyboardChanged(notification: Notification) {
-        guard let rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            let duration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else {
+        guard let rect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else {
                 return
         }
         let offset = view.bounds.height - rect.origin.y

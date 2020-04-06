@@ -72,14 +72,14 @@ class WBStatusListViewModel {
                     continue
             }
             dispatchGroup.enter()
-            SDWebImageManager.shared().downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _, _) in
-                if let image = image,
-                    let data = UIImagePNGRepresentation(image) {
-                    length += data.count
-                    viewModel.updateSingleImageSize(image: image)
-                }
-                dispatchGroup.leave() // 放在回调的最后一句
-            })
+//            SDWebImageDownloader.shared.downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _, _) in
+//                if let image = image,
+//                    let data = UIImagePNGRepresentation(image) {
+//                    length += data.count
+//                    viewModel.updateSingleImageSize(image: image)
+//                }
+//                dispatchGroup.leave() // 放在回调的最后一句
+//            })
         }
         
         dispatchGroup.notify(queue: DispatchQueue.main) {

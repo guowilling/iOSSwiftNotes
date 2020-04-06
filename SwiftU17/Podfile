@@ -12,8 +12,6 @@ target 'SwiftU17' do
   
   pod 'FSPagerView', '~> 0.8.1'
   
-  pod 'HandyJSON', '~> 4.2.1'
-  
   pod 'Kingfisher', '~> 4.10.1'
   
   pod 'MJRefresh', '~> 3.1.15.7'
@@ -25,5 +23,7 @@ target 'SwiftU17' do
   pod 'SnapKit', '~> 4.2.0'
   
   pod 'SwipeMenuViewController', '~> 3.0.0'
+  
+  pod 'HandyJSON'
   
 end

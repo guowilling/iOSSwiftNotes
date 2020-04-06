@@ -27,12 +27,12 @@ class SQLiteManager {
         var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         path = (path as NSString).appendingPathComponent("status.db") // 数据库文件的全路径
         //print("数据库文件的路径: " + path)
-        queue = FMDatabaseQueue(path: path) // 创建数据库队列, 自动创建或者打开数据库.
+        queue = FMDatabaseQueue(path: path)! // 创建数据库队列, 自动创建或者打开数据库.
         createTable() // 创建数据表
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(clearDBCache),
-                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                               name: UIApplication.didEnterBackgroundNotification,
                                                object: nil)
     }
     
@@ -45,8 +45,8 @@ class SQLiteManager {
         print("清理数据库缓存: \(dateString)")
         let SQLString = "DELETE FROM T_Status WHERE createTime < ?;"
         queue.inDatabase { (db) in
-            if db?.executeUpdate(SQLString, withArgumentsIn: [dateString]) == true {
-                print("删除了: \(db?.changes()) 条记录")
+            if db.executeUpdate(SQLString, withArgumentsIn: [dateString]) == true {
+                print("删除了: \(db.changes) 条记录")
             }
         }
     }
@@ -65,7 +65,7 @@ extension SQLiteManager {
         queue.inDatabase { (db) in
             // executeStatements 只用在创表的时候, 可以执行多条语句, 一次创建多个表.
             // 增删改的时候, 不要使用 executeStatements, 否则有可能会被注入!
-            if db?.executeStatements(SQLString) == true {
+            if db.executeStatements(SQLString) == true {
                 print("创建表成功")
             } else {
                 print("创建表失败")
@@ -109,11 +109,11 @@ extension SQLiteManager {
         
         // 执行 SQL 语句, 查询数据不会修改数据, 所以不需要开启事务. 事务: 是为了保证数据的有效性, 一旦失败回滚到初始状态.
         queue.inDatabase { (db) in
-            guard let result = db?.executeQuery(SQLString, withArgumentsIn: []) else {
+            guard let result = db.executeQuery(SQLString, withArgumentsIn: []) else {
                 return
             }
             while result.next() {
-                let colCount = result.columnCount()
+                let colCount = result.columnCount
                 for col in 0..<colCount {
                     guard let name = result.columnName(for: col),
                         let value = result.object(forColumnIndex: col) else {
@@ -138,11 +138,11 @@ extension SQLiteManager {
                     let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: []) else {
                         continue
                 }
-                if db?.executeUpdate(SQLString, withArgumentsIn: [statusId, userId, jsonData]) == false {
+                if db.executeUpdate(SQLString, withArgumentsIn: [statusId, userId, jsonData]) == false {
                     // 回滚 *rollback = YES;
                     // Swift 1.x & 2.x => rollback.memory = true;
                     // Swift 3.0
-                    rollback?.pointee = true
+                    rollback.pointee = true
                     break
                 }
                 // 测试回滚

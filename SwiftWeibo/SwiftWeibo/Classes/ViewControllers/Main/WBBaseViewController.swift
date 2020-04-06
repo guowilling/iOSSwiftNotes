@@ -23,7 +23,7 @@ class WBBaseViewController: UIViewController {
                                                object: nil)
     }
     
-    func loadData() {
+    @objc func loadData() {
         refreshControl?.endRefreshing()
     }
     

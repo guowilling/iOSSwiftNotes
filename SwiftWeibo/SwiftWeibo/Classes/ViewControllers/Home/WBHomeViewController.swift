@@ -34,16 +34,16 @@ class WBHomeViewController: WBBaseViewController {
 // MARK: - Setup UI
 extension WBHomeViewController {
     
-    override func setupTableView() {
-        super.setupTableView()
-        
-        tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
-        tableView?.register(UINib(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
-        
-        //tableView?.rowHeight = UITableViewAutomaticDimension // 取消自动行高
-        tableView?.estimatedRowHeight = 300
-        tableView?.separatorStyle = .none
-    }
+//    func setupTableView() {
+//        super.setupTableView()
+//        
+//        tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
+//        tableView?.register(UINib(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedCellId)
+//        
+//        //tableView?.rowHeight = UITableViewAutomaticDimension // 取消自动行高
+//        tableView?.estimatedRowHeight = 300
+//        tableView?.separatorStyle = .none
+//    }
 }
 
 // MARK: - UITableViewDataSource && UITableViewDelegate
